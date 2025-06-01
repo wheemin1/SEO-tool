@@ -1,0 +1,123 @@
+
+{
+  "app": {
+    "title": "SEO SERPプレビューツール",
+    "subtitle": "Google検索結果でページがどのように表示されるかプレビューします"
+  },
+  "viewMode": {
+    "desktop": "デスクトップ",
+    "mobile": "モバイル"
+  },
+  "form": {
+    "title": "SERPデータを編集",
+    "pageTitle": "ページタイトル",
+    "pageTitlePlaceholder": "ページタイトルを入力してください",
+    "metaDescription": "メタディスクリプション",
+    "metaDescriptionPlaceholder": "メタディスクリプションを入力してください",
+    "pageUrl": "ページURL",
+    "pageUrlPlaceholder": "https://example.com/your-page",
+    "keywords": "キーワード（カンマ区切り）",
+    "keywordsPlaceholder": "キーワード1, キーワード2, キーワード3",
+    "keywordsHelper": "キーワードはプレビューで太字で強調表示されます"
+  },
+  "metrics": {
+    "characters": "文字",
+    "pixels": "ピクセル"
+  },
+  "tips": {
+    "title": "クイックヒント:",
+    "titleLimit": "タイトルは60文字以下、{{limit}}px以下に保つ",
+    "descriptionLimit": "説明は160文字以下、{{limit}}px以下に保つ",
+    "includeKeyword": "タイトルにメインキーワードを含める",
+    "compelling": "説明を魅力的で行動を促すものにする"
+  },
+  "metaTags": {
+    "title": "生成されたメタタグ",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "copySuccess": "メタタグがクリップボードにコピーされました",
+    "copyError": "メタタグのコピーに失敗しました"
+  },
+  "preview": {
+    "title": "SERPプレビュー（{{mode}}）",
+    "titleCutoff": "タイトル切り詰め:",
+    "descriptionCutoff": "説明切り詰め:",
+    "truncated": "切り詰め",
+    "full": "完全"
+  },
+  "theme": {
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム"
+  },
+  "language": {
+    "select": "言語を選択"
+  },
+  "seoAnalysis": {
+    "title": "SEO分析",
+    "overallScore": "総合SEOスコア",
+    "issuesFound": "発見された問題",
+    "readability": {
+      "title": "説明の読みやすさ",
+      "score": "スコア: {{score}}/100 (高いほど読みやすい)",
+      "levels": {
+        "veryEasy": "非常に読みやすい",
+        "easy": "読みやすい",
+        "fairlyEasy": "やや読みやすい",
+        "standard": "標準",
+        "fairlyDifficult": "やや読みにくい",
+        "difficult": "読みにくい",
+        "veryDifficult": "非常に読みにくい"
+      }
+    },
+    "keywordDensity": {
+      "title": "キーワード密度",
+      "title_": "タイトル",
+      "description": "説明"
+    },
+    "recommendations": "推奨事項",
+    "issues": {
+      "titleRequired": "ページタイトルが必要です",
+      "titleTooLong": "タイトルが推奨{{limit}}文字制限を超えています",
+      "titleTooShort": "タイトルが短すぎます（30文字未満）",
+      "titleNoKeywords": "タイトルに対象キーワードが含まれていません",
+      "titleNeedsMoreWords": "タイトルにより説明的な単語を使用することを検討してください",
+      "descriptionRequired": "メタ説明が必要です",
+      "descriptionTooLong": "説明が検索結果で切り捨てられる可能性があります（{{maxLength}}文字超）",
+      "descriptionTooShort": "説明が短すぎます（{{minLength}}文字未満）",
+      "descriptionNoKeywords": "説明に対象キーワードが含まれていません",
+      "descriptionNeedsCta": "説明に行動喚起を追加することを検討してください",
+      "urlTooLong": "URLがかなり長いため、短縮を検討してください",
+      "urlUsesUnderscores": "URLでアンダースコアの代わりにハイフンを使用することを検討してください",
+      "urlTooManyParams": "URLに多くのパラメータがあるため、よりクリーンなURLを検討してください",
+      "urlInvalid": "無効なURL形式です",
+      "noKeywords": "最適化用のキーワードが指定されていません",
+      "tooManyKeywords": "キーワードが多すぎるとフォーカスが薄れる可能性があります",
+      "missingKeywordInTitle": "主要キーワード「{{keyword}}」がタイトルにありません",
+      "missingKeywordInDescription": "主要キーワード「{{keyword}}」が説明にありません",
+      "invalidUrl": "URL形式が無効です",
+      "duplicateKeywords": "重複キーワードが検出されました",
+      "lowKeywordDensity": "キーワード密度が低すぎます（{{density}}%）",
+      "highKeywordDensity": "キーワード密度が高すぎます（{{density}}%）- スパムと見なされる可能性があります"
+    },
+    "recommendationsList": {
+      "optimizeTitle": "視認性向上のためタイトルを50-60文字に保ってください",
+      "includeKeywordInTitle": "タイトルに主要キーワードを含めてください",
+      "expandDescription": "より多くのコンテキストを提供するため説明を拡張してください",
+      "includeKeywordsInDescription": "説明に関連キーワードを含めることを検討してください",
+      "addCallToAction": "クリックを促すため「詳細を見る」「発見する」「取得する」などの行動語を追加してください",
+      "useHyphensInUrl": "より良いSEOのためアンダースコア（_）の代わりにハイフン（-）を使用してください",
+      "addKeywords": "コンテンツを最適化するため関連キーワードを追加してください",
+      "focusOnMainKeywords": "より良い結果のため3-5個の主要キーワードに集中してください",
+      "excellent": "素晴らしい！あなたのSEOは強力に見えます",
+      "goodFoundation": "良い基盤ですが、改善の余地があります",
+      "needsAttention": "より良い検索可視性のためいくつかのSEO問題に注意が必要です",
+      "optimizeDescription": "最適な表示のため説明を150-160文字に保ってください",
+      "includeKeywords": "タイトルと説明の両方に主要キーワードを含めてください",
+      "improveReadability": "読みやすさ向上のため短い文と簡単な単語を使用してください",
+      "useNumbers": "タイトルをより魅力的にするため数字や統計の使用を検討してください",
+      "avoidKeywordStuffing": "スパムとして認識されないようキーワード密度を下げてください",
+      "fixUrl": "URLが適切にフォーマットされアクセス可能であることを確認してください"
+    }
+  }
+}

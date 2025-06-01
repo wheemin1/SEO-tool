@@ -1,0 +1,123 @@
+
+{
+  "app": {
+    "title": "SEO SERP Preview Tool",
+    "subtitle": "Preview how your page will appear in Google search results"
+  },
+  "viewMode": {
+    "desktop": "Desktop",
+    "mobile": "Mobile"
+  },
+  "form": {
+    "title": "Edit Your SERP Data",
+    "pageTitle": "Page Title",
+    "pageTitlePlaceholder": "Enter your page title",
+    "metaDescription": "Meta Description",
+    "metaDescriptionPlaceholder": "Enter your meta description",
+    "pageUrl": "Page URL",
+    "pageUrlPlaceholder": "https://example.com/your-page",
+    "keywords": "Keywords (comma-separated)",
+    "keywordsPlaceholder": "keyword1, keyword2, keyword3",
+    "keywordsHelper": "Keywords will be highlighted in bold in the preview"
+  },
+  "metrics": {
+    "characters": "Characters",
+    "pixels": "Pixels"
+  },
+  "tips": {
+    "title": "Quick Tips:",
+    "titleLimit": "Keep titles under 60 characters and {{limit}}px width",
+    "descriptionLimit": "Keep descriptions under 160 characters and {{limit}}px width",
+    "includeKeyword": "Include your main keyword in the title",
+    "compelling": "Make descriptions compelling and actionable"
+  },
+  "metaTags": {
+    "title": "Generated Meta Tags",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "copySuccess": "Meta tags copied to clipboard",
+    "copyError": "Failed to copy meta tags"
+  },
+  "preview": {
+    "title": "SERP Preview ({{mode}})",
+    "titleCutoff": "Title cutoff:",
+    "descriptionCutoff": "Description cutoff:",
+    "truncated": "Truncated",
+    "full": "Full"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "select": "Select Language"
+  },
+  "seoAnalysis": {
+    "title": "SEO Analysis",
+    "overallScore": "Overall SEO Score",
+    "issuesFound": "Issues Found",
+    "readability": {
+      "title": "Description Readability",
+      "score": "Score: {{score}}/100 (Higher is easier to read)",
+      "levels": {
+        "veryEasy": "Very Easy",
+        "easy": "Easy",
+        "fairlyEasy": "Fairly Easy",
+        "standard": "Standard",
+        "fairlyDifficult": "Fairly Difficult",
+        "difficult": "Difficult",
+        "veryDifficult": "Very Difficult"
+      }
+    },
+    "keywordDensity": {
+      "title": "Keyword Density",
+      "title_": "Title",
+      "description": "Description"
+    },
+    "recommendations": "Recommendations",
+    "issues": {
+      "titleRequired": "Page title is required",
+      "titleTooLong": "Title exceeds recommended {{limit}} character limit",
+      "titleTooShort": "Title is too short (less than 30 characters)",
+      "titleNoKeywords": "Title does not contain any target keywords",
+      "titleNeedsMoreWords": "Consider using more descriptive words in your title",
+      "descriptionRequired": "Meta description is required",
+      "descriptionTooLong": "Description may be truncated in search results (over {{maxLength}} characters)",
+      "descriptionTooShort": "Description is too short (less than {{minLength}} characters)",
+      "descriptionNoKeywords": "Description does not contain target keywords",
+      "descriptionNeedsCta": "Consider adding a call-to-action to your description",
+      "urlTooLong": "URL is quite long, consider shortening it",
+      "urlUsesUnderscores": "Consider using hyphens instead of underscores in URLs",
+      "urlTooManyParams": "URL has many parameters, consider using cleaner URLs",
+      "urlInvalid": "Invalid URL format",
+      "noKeywords": "No keywords specified for optimization",
+      "tooManyKeywords": "Too many keywords may dilute focus",
+      "missingKeywordInTitle": "Primary keyword '{{keyword}}' not found in title",
+      "missingKeywordInDescription": "Primary keyword '{{keyword}}' not found in description",
+      "invalidUrl": "URL format is invalid",
+      "duplicateKeywords": "Duplicate keywords detected",
+      "lowKeywordDensity": "Keyword density is too low ({{density}}%)",
+      "highKeywordDensity": "Keyword density is too high ({{density}}%) - may be considered spam"
+    },
+    "recommendationsList": {
+      "optimizeTitle": "Keep title between 50-60 characters for better visibility",
+      "includeKeywordInTitle": "Include your main keyword in the title",
+      "expandDescription": "Expand your description to provide more context",
+      "includeKeywordsInDescription": "Consider including relevant keywords in the description",
+      "addCallToAction": "Add action words like 'Learn', 'Discover', or 'Get' to encourage clicks",
+      "useHyphensInUrl": "Use hyphens (-) instead of underscores (_) for better SEO",
+      "addKeywords": "Add relevant keywords to optimize your content",
+      "focusOnMainKeywords": "Focus on 3-5 main keywords for better results",
+      "excellent": "Great job! Your SEO looks strong",
+      "goodFoundation": "Good foundation, but there's room for improvement",
+      "needsAttention": "Several SEO issues need attention for better search visibility",
+      "optimizeDescription": "Keep description between 150-160 characters for optimal display",
+      "includeKeywords": "Include your primary keyword in both title and description",
+      "improveReadability": "Use shorter sentences and simpler words to improve readability",
+      "useNumbers": "Consider using numbers or statistics to make your title more compelling",
+      "avoidKeywordStuffing": "Reduce keyword density to avoid being flagged as spam",
+      "fixUrl": "Ensure your URL is properly formatted and accessible"
+    }
+  }
+}

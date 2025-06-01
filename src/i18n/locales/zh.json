@@ -1,0 +1,123 @@
+
+{
+  "app": {
+    "title": "SEO SERP 预览工具",
+    "subtitle": "预览您的页面在 Google 搜索结果中的显示效果"
+  },
+  "viewMode": {
+    "desktop": "桌面",
+    "mobile": "移动"
+  },
+  "form": {
+    "title": "编辑您的 SERP 数据",
+    "pageTitle": "页面标题",
+    "pageTitlePlaceholder": "输入您的页面标题",
+    "metaDescription": "元描述",
+    "metaDescriptionPlaceholder": "输入您的元描述",
+    "pageUrl": "页面 URL",
+    "pageUrlPlaceholder": "https://example.com/your-page",
+    "keywords": "关键词（逗号分隔）",
+    "keywordsPlaceholder": "关键词1, 关键词2, 关键词3",
+    "keywordsHelper": "关键词将在预览中以粗体突出显示"
+  },
+  "metrics": {
+    "characters": "字符",
+    "pixels": "像素"
+  },
+  "tips": {
+    "title": "快速提示:",
+    "titleLimit": "标题保持在60个字符以下和{{limit}}px宽度以下",
+    "descriptionLimit": "描述保持在160个字符以下和{{limit}}px宽度以下",
+    "includeKeyword": "在标题中包含您的主要关键词",
+    "compelling": "使描述引人注目且具有号召性"
+  },
+  "metaTags": {
+    "title": "生成的元标签",
+    "copy": "复制",
+    "copied": "已复制！",
+    "copySuccess": "元标签已复制到剪贴板",
+    "copyError": "复制元标签失败"
+  },
+  "preview": {
+    "title": "SERP 预览（{{mode}}）",
+    "titleCutoff": "标题截断:",
+    "descriptionCutoff": "描述截断:",
+    "truncated": "截断",
+    "full": "完整"
+  },
+  "theme": {
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统"
+  },
+  "language": {
+    "select": "选择语言"
+  },
+  "seoAnalysis": {
+    "title": "SEO 分析",
+    "overallScore": "整体 SEO 得分",
+    "issuesFound": "发现的问题",
+    "readability": {
+      "title": "描述可读性",
+      "score": "得分: {{score}}/100 (越高越易读)",
+      "levels": {
+        "veryEasy": "非常容易",
+        "easy": "容易",
+        "fairlyEasy": "较容易",
+        "standard": "标准",
+        "fairlyDifficult": "较困难",
+        "difficult": "困难",
+        "veryDifficult": "非常困难"
+      }
+    },
+    "keywordDensity": {
+      "title": "关键词密度",
+      "title_": "标题",
+      "description": "描述"
+    },
+    "recommendations": "建议",
+    "issues": {
+      "titleRequired": "需要页面标题",
+      "titleTooLong": "标题超过推荐的{{limit}}字符限制",
+      "titleTooShort": "标题太短（少于30个字符）",
+      "titleNoKeywords": "标题不包含任何目标关键词",
+      "titleNeedsMoreWords": "考虑在标题中使用更多描述性词语",
+      "descriptionRequired": "需要元描述",
+      "descriptionTooLong": "描述可能在搜索结果中被截断（超过{{maxLength}}个字符）",
+      "descriptionTooShort": "描述太短（少于{{minLength}}个字符）",
+      "descriptionNoKeywords": "描述不包含目标关键词",
+      "descriptionNeedsCta": "考虑在描述中添加行动号召",
+      "urlTooLong": "URL相当长，考虑缩短",
+      "urlUsesUnderscores": "考虑在URL中使用连字符而不是下划线",
+      "urlTooManyParams": "URL有很多参数，考虑使用更简洁的URL",
+      "urlInvalid": "无效的URL格式",
+      "noKeywords": "未指定优化关键词",
+      "tooManyKeywords": "太多关键词可能会分散焦点",
+      "missingKeywordInTitle": "标题中未找到主要关键词'{{keyword}}'",
+      "missingKeywordInDescription": "描述中未找到主要关键词'{{keyword}}'",
+      "invalidUrl": "URL格式无效",
+      "duplicateKeywords": "检测到重复关键词",
+      "lowKeywordDensity": "关键词密度太低（{{density}}%）",
+      "highKeywordDensity": "关键词密度太高（{{density}}%）- 可能被视为垃圾邮件"
+    },
+    "recommendationsList": {
+      "optimizeTitle": "保持标题在50-60个字符之间以获得更好的可见性",
+      "includeKeywordInTitle": "在标题中包含您的主要关键词",
+      "expandDescription": "扩展您的描述以提供更多上下文",
+      "includeKeywordsInDescription": "考虑在描述中包含相关关键词",
+      "addCallToAction": "添加'了解更多'、'发现'或'获取'等行动词语来鼓励点击",
+      "useHyphensInUrl": "使用连字符(-)而不是下划线(_)以获得更好的SEO",
+      "addKeywords": "添加相关关键词来优化您的内容",
+      "focusOnMainKeywords": "专注于3-5个主要关键词以获得更好的结果",
+      "excellent": "太棒了！您的SEO看起来很强",
+      "goodFoundation": "良好的基础，但仍有改进空间",
+      "needsAttention": "需要关注几个SEO问题以获得更好的搜索可见性",
+      "optimizeDescription": "保持描述在150-160个字符之间以获得最佳显示",
+      "includeKeywords": "在标题和描述中都包含您的主要关键词",
+      "improveReadability": "使用更短的句子和更简单的词语来提高可读性",
+      "useNumbers": "考虑使用数字或统计数据使您的标题更具吸引力",
+      "avoidKeywordStuffing": "减少关键词密度以避免被标记为垃圾邮件",
+      "fixUrl": "确保您的URL格式正确且可访问"
+    }
+  }
+}

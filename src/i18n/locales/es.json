@@ -1,0 +1,123 @@
+
+{
+  "app": {
+    "title": "Herramienta de Vista Previa SEO SERP",
+    "subtitle": "Previsualiza cómo aparecerá tu página en los resultados de búsqueda de Google"
+  },
+  "viewMode": {
+    "desktop": "Escritorio",
+    "mobile": "Móvil"
+  },
+  "form": {
+    "title": "Editar Datos SERP",
+    "pageTitle": "Título de la Página",
+    "pageTitlePlaceholder": "Ingresa el título de tu página",
+    "metaDescription": "Meta Descripción",
+    "metaDescriptionPlaceholder": "Ingresa tu meta descripción",
+    "pageUrl": "URL de la Página",
+    "pageUrlPlaceholder": "https://example.com/your-page",
+    "keywords": "Palabras Clave (separadas por comas)",
+    "keywordsPlaceholder": "palabra1, palabra2, palabra3",
+    "keywordsHelper": "Las palabras clave se resaltarán en negrita en la vista previa"
+  },
+  "metrics": {
+    "characters": "Caracteres",
+    "pixels": "Píxeles"
+  },
+  "tips": {
+    "title": "Consejos Rápidos:",
+    "titleLimit": "Mantén los títulos bajo 60 caracteres y {{limit}}px de ancho",
+    "descriptionLimit": "Mantén las descripciones bajo 160 caracteres y {{limit}}px de ancho",
+    "includeKeyword": "Incluye tu palabra clave principal en el título",
+    "compelling": "Haz las descripciones atractivas y orientadas a la acción"
+  },
+  "metaTags": {
+    "title": "Etiquetas Meta Generadas",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "copySuccess": "Etiquetas meta copiadas al portapapeles",
+    "copyError": "Error al copiar las etiquetas meta"
+  },
+  "preview": {
+    "title": "Vista Previa SERP ({{mode}})",
+    "titleCutoff": "Corte del título:",
+    "descriptionCutoff": "Corte de la descripción:",
+    "truncated": "Truncado",
+    "full": "Completo"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
+  "language": {
+    "select": "Seleccionar Idioma"
+  },
+  "seoAnalysis": {
+    "title": "Análisis SEO",
+    "overallScore": "Puntuación SEO General",
+    "issuesFound": "Problemas Encontrados",
+    "readability": {
+      "title": "Legibilidad de la Descripción",
+      "score": "Puntuación: {{score}}/100 (Más alto es más fácil de leer)",
+      "levels": {
+        "veryEasy": "Muy Fácil",
+        "easy": "Fácil",
+        "fairlyEasy": "Bastante Fácil",
+        "standard": "Estándar",
+        "fairlyDifficult": "Bastante Difícil",
+        "difficult": "Difícil",
+        "veryDifficult": "Muy Difícil"
+      }
+    },
+    "keywordDensity": {
+      "title": "Densidad de Palabras Clave",
+      "title_": "Título",
+      "description": "Descripción"
+    },
+    "recommendations": "Recomendaciones",
+    "issues": {
+      "titleRequired": "Se requiere título de página",
+      "titleTooLong": "El título excede el límite recomendado de {{limit}} caracteres",
+      "titleTooShort": "El título es demasiado corto (menos de 30 caracteres)",
+      "titleNoKeywords": "El título no contiene ninguna palabra clave objetivo",
+      "titleNeedsMoreWords": "Considera usar palabras más descriptivas en tu título",
+      "descriptionRequired": "Se requiere meta descripción",
+      "descriptionTooLong": "La descripción puede truncarse en los resultados de búsqueda (más de {{maxLength}} caracteres)",
+      "descriptionTooShort": "La descripción es demasiado corta (menos de {{minLength}} caracteres)",
+      "descriptionNoKeywords": "La descripción no contiene palabras clave objetivo",
+      "descriptionNeedsCta": "Considera agregar una llamada a la acción a tu descripción",
+      "urlTooLong": "La URL es bastante larga, considera acortarla",
+      "urlUsesUnderscores": "Considera usar guiones en lugar de guiones bajos en las URLs",
+      "urlTooManyParams": "La URL tiene muchos parámetros, considera usar URLs más limpias",
+      "urlInvalid": "Formato de URL inválido",
+      "noKeywords": "No se especificaron palabras clave para optimización",
+      "tooManyKeywords": "Demasiadas palabras clave pueden diluir el enfoque",
+      "missingKeywordInTitle": "Palabra clave principal '{{keyword}}' no encontrada en el título",
+      "missingKeywordInDescription": "Palabra clave principal '{{keyword}}' no encontrada en la descripción",
+      "invalidUrl": "Formato de URL inválido",
+      "duplicateKeywords": "Palabras clave duplicadas detectadas",
+      "lowKeywordDensity": "La densidad de palabras clave es demasiado baja ({{density}}%)",
+      "highKeywordDensity": "La densidad de palabras clave es demasiado alta ({{density}}%) - puede considerarse spam"
+    },
+    "recommendationsList": {
+      "optimizeTitle": "Mantén el título entre 50-60 caracteres para mejor visibilidad",
+      "includeKeywordInTitle": "Incluye tu palabra clave principal en el título",
+      "expandDescription": "Expande tu descripción para proporcionar más contexto",
+      "includeKeywordsInDescription": "Considera incluir palabras clave relevantes en la descripción",
+      "addCallToAction": "Agrega palabras de acción como 'Aprende más', 'Descubre' o 'Obtén' para fomentar clics",
+      "useHyphensInUrl": "Usa guiones (-) en lugar de guiones bajos (_) para mejor SEO",
+      "addKeywords": "Agrega palabras clave relevantes para optimizar tu contenido",
+      "focusOnMainKeywords": "Enfócate en 3-5 palabras clave principales para mejores resultados",
+      "excellent": "¡Excelente! Tu SEO se ve fuerte",
+      "goodFoundation": "Buena base, pero hay espacio para mejorar",
+      "needsAttention": "Varios problemas de SEO necesitan atención para mejor visibilidad en búsquedas",
+      "optimizeDescription": "Mantén la descripción entre 150-160 caracteres para visualización óptima",
+      "includeKeywords": "Incluye tu palabra clave principal tanto en el título como en la descripción",
+      "improveReadability": "Usa oraciones más cortas y palabras más simples para mejorar la legibilidad",
+      "useNumbers": "Considera usar números o estadísticas para hacer tu título más atractivo",
+      "avoidKeywordStuffing": "Reduce la densidad de palabras clave para evitar ser marcado como spam",
+      "fixUrl": "Asegúrate de que tu URL esté correctamente formateada y sea accesible"
+    }
+  }
+}
