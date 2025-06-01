@@ -1,3 +1,8 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Specific rules for major crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -9,6 +14,24 @@ Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Naverbot
+Allow: /
+
+User-agent: Sogou
+Allow: /
+
+# Sitemap location
+Sitemap: https://seo-serp-preview-tool.netlify.app/sitemap.xml
 
 User-agent: *
 Allow: /
