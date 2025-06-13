@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="url(#paint0_linear)" />
+  
+  <!-- Main title -->
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="white" text-anchor="middle">SEO SERP Preview Tool</text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle">Google Search Results Previewer &amp; SEO Analyzer</text>
+  
+  <!-- Feature list -->
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">✓ Real-time SERP Preview  ✓ SEO Analysis  ✓ 5 Languages Support</text>
+  
+  <!-- Sample SERP preview box -->
+  <rect x="300" y="380" width="600" height="150" rx="8" fill="white" fill-opacity="0.1" stroke="white" stroke-width="2" />
+  
+  <!-- Sample preview content -->
+  <text x="320" y="410" font-family="Arial, sans-serif" font-size="18" fill="#4CAF50" font-weight="bold">www.example.com</text>
+  <text x="320" y="440" font-family="Arial, sans-serif" font-size="22" fill="#1A73E8" font-weight="bold">Example Page Title - Brand Name</text>
+  <text x="320" y="470" font-family="Arial, sans-serif" font-size="16" fill="#CCCCCC">This is a sample meta description that would appear in Google search results. Try our free SEO SERP Preview Tool today!</text>
+  
+  <!-- Footer -->
+  <text x="600" y="580" font-family="Arial, sans-serif" font-size="24" fill="white" text-anchor="middle">Try it free at seo-serp-preview-tool.netlify.app</text>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E293B" />
+      <stop offset="1" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+</svg>
