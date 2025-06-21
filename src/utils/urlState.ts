@@ -13,10 +13,10 @@ const SERPStateSchema = z.object({
 export type SERPState = z.infer<typeof SERPStateSchema>;
 
 const DEFAULT_STATE: SERPState = {
-  title: 'Your Page Title Goes Here - Make It Compelling and Descriptive',
-  description: 'This is your meta description. It should provide a clear and concise summary of your page content to entice users to click through to your website from search results. Make it compelling and actionable.',
-  url: 'https://example.com/your-page-url',
-  keywords: '',
+  title: '🚀 최고의 SEO 도구로 검색 순위 올리기 | 무료 체험',
+  description: '구글 검색 결과에서 당신의 웹사이트가 어떻게 보이는지 실시간으로 확인하세요. 제목과 메타 설명을 최적화하여 클릭률을 높이고 더 많은 방문자를 유치하세요. 지금 무료로 시작해보세요!',
+  url: 'https://your-awesome-website.com/seo-tools',
+  keywords: 'SEO 도구, 검색 최적화, 메타 태그, SERP 미리보기',
   viewMode: 'desktop'
 };
 

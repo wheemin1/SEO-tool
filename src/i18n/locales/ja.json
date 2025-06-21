@@ -1,10 +1,10 @@
-
 {
   "app": {
     "title": "SEO SERPプレビューツール",
     "subtitle": "Google検索結果でページがどのように表示されるかプレビューします"
   },
   "viewMode": {
+    "title": "デバイスプレビューモード",
     "desktop": "デスクトップ",
     "mobile": "モバイル"
   },
@@ -31,6 +31,14 @@
     "includeKeyword": "タイトルにメインキーワードを含める",
     "compelling": "説明を魅力的で行動を促すものにする"
   },
+  "feedback": {
+    "titleTooShort": "タイトルをもう少し具体的にすることをお勧めします（30文字以上推奨）",
+    "titleTooLong": "タイトルが検索結果で切り取られる可能性があります",
+    "titleNeedsKeyword": "タイトルにキーワードを含めるとSEOに効果的です",
+    "descriptionTooShort": "説明をもう少し詳しく書くことをお勧めします（120文字以上推奨）",
+    "descriptionTooLong": "説明が検索結果で切り取られる可能性があります",
+    "descriptionNeedsKeyword": "説明にキーワードを自然に含めてみてください"
+  },
   "metaTags": {
     "title": "生成されたメタタグ",
     "copy": "コピー",
@@ -43,7 +51,97 @@
     "titleCutoff": "タイトル切り詰め:",
     "descriptionCutoff": "説明切り詰め:",
     "truncated": "切り詰め",
-    "full": "完全"
+    "full": "完全"  },
+  "onboarding": {
+    "sampleData": "サンプルデータを試す",
+    "reset": "リセット",
+    "helpTooltip": "このツールはGoogle検索結果でページがどのように表示されるかをプレビューできます"
+  },
+  "templates": {
+    "title": "クイックスタートテンプレート",
+    "subtitle": "テンプレートをクリックして、業界特有のSEOフィールドを即座に入力できます",
+    "tip": {
+      "title": "プロのヒント",
+      "description": "これらのテンプレートは異なる業界に最適化されています。出発点として使用し、あなたの特定のコンテンツとブランドボイスに合わせてカスタマイズしてください。"
+    },
+    "categories": {
+      "ecommerce": "Eコマース",
+      "business": "ビジネス",
+      "education": "教育",
+      "health": "健康",
+      "automotive": "自動車",
+      "realestate": "不動産",
+      "food": "料理",
+      "creative": "クリエイティブ"
+    },
+    "industries": {
+      "retail": "小売業",
+      "professional": "専門サービス",
+      "education": "教育",
+      "healthcare": "ヘルスケア",
+      "automotive": "自動車",
+      "realestate": "不動産",
+      "food": "食品・飲料",
+      "photography": "写真"
+    },
+    "examples": {
+      "ecommerce": {
+        "name": "Eコマース商品",
+        "title": "プレミアムワイヤレスヘッドホン - 2025年最高の音質",
+        "description": "ノイズキャンセリング、30時間バッテリー、クリアな音質を備えた最高評価のワイヤレスヘッドホンをご覧ください。送料無料・2年保証付き。",
+        "url": "https://example-store.com/wireless-headphones-premium",
+        "keywords": "ワイヤレスヘッドホン, ノイズキャンセリング, プレミアムオーディオ, Bluetoothヘッドホン"
+      },
+      "business": {
+        "name": "ビジネスサービス",
+        "title": "デジタルマーケティング代理店 | SEO・PPC専門家 | ビジネス成長",
+        "description": "専門のデジタルマーケティングサービスでオンラインプレゼンスを変革しましょう。SEO、PPC、ソーシャルメディアマーケティング専門。無料相談を今すぐ！",
+        "url": "https://marketing-agency.com/services",
+        "keywords": "デジタルマーケティング, SEOサービス, PPC広告, ソーシャルメディアマーケティング"
+      },
+      "education": {
+        "name": "教育コンテンツ",
+        "title": "Pythonプログラミングを学ぶ - 2025年完全初心者コース",
+        "description": "包括的なコースでPythonプログラミングを基礎から習得しましょう。実践プロジェクト、実例、生涯アクセス付き。今すぐコーディングを始めよう！",
+        "url": "https://coding-academy.com/python-course",
+        "keywords": "Pythonプログラミング, コーディングコース, プログラミングチュートリアル, コーディング学習"
+      },
+      "health": {
+        "name": "健康・ウェルネス",
+        "title": "免疫力を自然に高める科学的根拠のある10の方法",
+        "description": "自然なアプローチで免疫システムを強化する実証済みの方法を発見しましょう。栄養、運動、睡眠、ライフスタイルの変化についての専門的アドバイス。",
+        "url": "https://wellness-blog.com/boost-immune-system-naturally",
+        "keywords": "免疫システム, 自然健康, ウェルネスのヒント, 健康的なライフスタイル"
+      },
+      "automotive": {
+        "name": "自動車レビュー",
+        "title": "2025年テスラモデル3レビュー | 性能・航続距離・機能",
+        "description": "性能仕様、航続距離、内装機能、価格をカバーする2025年テスラモデル3の完全レビュー。なぜトップ電気セダンなのかをご覧ください。",
+        "url": "https://auto-reviews.com/tesla-model-3-2025-review",
+        "keywords": "テスラモデル3, 電気自動車レビュー, EV性能, テスラ2025"
+      },
+      "realestate": {
+        "name": "不動産リスティング",
+        "title": "豪華4ベッドルーム住宅販売 | ダウンタウン立地 | $750K",
+        "description": "一等地ダウンタウンエリアの見事な4ベッドルーム・3バスルーム住宅。モダンキッチン、ハードウッドフロア、プライベートガーデン付き。今すぐ見学予約を！",
+        "url": "https://realty-pro.com/listings/luxury-downtown-home-4br",
+        "keywords": "豪華住宅販売, 4ベッドルーム住宅, ダウンタウン不動産, モダンハウス"
+      },
+      "food": {
+        "name": "料理・レシピ",
+        "title": "簡単30分チキンアルフレードレシピ | クリーミーで美味しい",
+        "description": "家庭でたった30分でレストラン品質のチキンアルフレードを作る方法を学びましょう。シンプルな材料で驚くべき結果を得るクリーミーで濃厚なパスタ料理。",
+        "url": "https://recipe-hub.com/easy-chicken-alfredo-30-minutes",
+        "keywords": "チキンアルフレードレシピ, 簡単パスタレシピ, 30分料理, 手作りアルフレード"
+      },
+      "photography": {
+        "name": "写真サービス",
+        "title": "プロフェッショナル結婚式写真 | 完璧な一日を撮影",
+        "description": "自然で感動的な瞬間を専門とする受賞歴のある結婚式写真家。個人向けパッケージと素晴らしい結果で三州エリアにサービス提供。",
+        "url": "https://wedding-photos.com/services",
+        "keywords": "結婚式写真, プロ写真家, ウェディング写真, ブライダル写真"
+      }
+    }
   },
   "theme": {
     "light": "ライト",
@@ -118,6 +216,21 @@
       "useNumbers": "タイトルをより魅力的にするため数字や統計の使用を検討してください",
       "avoidKeywordStuffing": "スパムとして認識されないようキーワード密度を下げてください",
       "fixUrl": "URLが適切にフォーマットされアクセス可能であることを確認してください"
-    }
+    }  },
+  "seoScore": {
+    "dashboardTitle": "SEOスコアダッシュボード",
+    "title": "タイトル最適化",
+    "description": "説明最適化",
+    "keywords": "キーワード活用",
+    "overall": "総合スコア",
+    "excellent": "優秀",
+    "good": "良好",
+    "needsWork": "改善必要"
+  },
+  "sampleData": {
+    "title": "🚀 最高のSEOツールで検索順位向上 | 無料体験",
+    "description": "Google検索結果でウェブサイトがどのように表示されるかをリアルタイムで確認しましょう。タイトルとメタ説明を最適化してクリック率を向上させ、より多くの訪問者を獲得しましょう。",
+    "url": "https://your-awesome-website.com/seo-tools",
+    "keywords": "SEOツール, 検索最適化, メタタグ, SERPプレビュー"
   }
 }

@@ -11,11 +11,13 @@ import MetaTagGenerator from './MetaTagGenerator';
 import LanguageSelector from './LanguageSelector';
 import ThemeToggle from './ThemeToggle';
 import SEOAnalysisPanel from './SEOAnalysisPanel';
+import TemplateSelector from './TemplateSelector';
 import { MetricsDisplay } from './StatusIndicator';
 import { useSERPState } from '@/hooks/useSERPState';
+import { SEOScoreDashboard } from './SEOScoreDashboard';
 
 const SERPPreview = memo(() => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   const {
@@ -30,217 +32,313 @@ const SERPPreview = memo(() => {
     updateViewMode,
     calculateMetrics,
   } = useSERPState();
-
   // Calculate metrics when canvas is available or dependencies change
   useEffect(() => {
     calculateMetrics(canvasRef.current);
   }, [calculateMetrics]);
 
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-4 transition-colors">
-      <div className="max-w-6xl mx-auto space-y-6">
-        {/* Header */}
-        <header>
-          <div className="text-center">
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex-1">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  {t('app.title')}
-                </h1>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('app.subtitle')}
-                </p>
-              </div>
-              <div className="flex items-center space-x-4">
-                <LanguageSelector />
-                <ThemeToggle />
+  // Handler for template selection
+  const handleTemplateSelect = (template: {
+    title: string;
+    description: string;
+    url: string;
+    keywords: string;
+  }) => {
+    updateTitle(template.title);
+    updateDescription(template.description);
+    updateUrl(template.url);
+    updateKeywords(template.keywords);
+  };
+  return (    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
+      <div className="container mx-auto px-4 py-4 max-w-7xl">        {/* Header - Enhanced with onboarding */}
+        <header className="mb-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {t('app.title')}
+            </h1>
+            <div className="group relative">
+              <div className="w-5 h-5 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs cursor-help">
+                ?
+              </div>              <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+                {t('onboarding.helpTooltip')}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
               </div>
             </div>
           </div>
-        </header>
-
-        {/* View Mode Toggle */}
-        <Card className="dark:bg-gray-800 dark:border-gray-700">
-          <CardContent className="pt-6">
-            <div className="flex justify-center space-x-2" role="tablist" aria-label="View mode selection">
-              <Button
-                variant={state.viewMode === 'desktop' ? 'default' : 'outline'}
-                onClick={() => updateViewMode('desktop')}
-                className="flex items-center space-x-2 dark:border-gray-600"
-                aria-label={t('viewMode.desktop')}
-                role="tab"
-                aria-selected={state.viewMode === 'desktop'}
-              >
-                <Monitor size={16} />
-                <span>{t('viewMode.desktop')}</span>
-              </Button>
-              <Button
-                variant={state.viewMode === 'mobile' ? 'default' : 'outline'}
-                onClick={() => updateViewMode('mobile')}
-                className="flex items-center space-x-2 dark:border-gray-600"
-                aria-label={t('viewMode.mobile')}
-                role="tab"
-                aria-selected={state.viewMode === 'mobile'}
-              >
-                <Smartphone size={16} />
-                <span>{t('viewMode.mobile')}</span>
-              </Button>
+          
+          <p className="text-sm text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-3">
+            {t('app.subtitle')}
+          </p>
+            {/* Quick Action Buttons */}
+          <div className="flex items-center justify-center gap-3 mb-4" key={`onboarding-buttons-${i18n.language}`}>
+            <Button
+              onClick={() => {
+                updateTitle(t('sampleData.title'));
+                updateDescription(t('sampleData.description'));
+                updateUrl(t('sampleData.url'));
+                updateKeywords(t('sampleData.keywords'));
+              }}
+              variant="outline"
+              size="sm"
+              className="text-xs"
+            >
+              ✨ {t('onboarding.sampleData')}
+            </Button>
+            <Button
+              onClick={() => {
+                updateTitle('');
+                updateDescription('');
+                updateUrl('');
+                updateKeywords('');
+              }}
+              variant="ghost"
+              size="sm"
+              className="text-xs"
+            >
+              🗑️ {t('onboarding.reset')}
+            </Button>
+          </div>
+          
+          <div className="flex items-center justify-between mt-4">
+            <div></div> {/* Spacer */}
+            <div className="flex items-center space-x-4">
+              <LanguageSelector />
+              <ThemeToggle />
             </div>
-          </CardContent>
-        </Card>
+          </div>        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Input Form */}
-          <section className="space-y-6" aria-label="SEO content editor">
-            <Card className="dark:bg-gray-800 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="dark:text-white">{t('form.title')}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {/* Title Input */}
-                <div className="space-y-2">
-                  <Label htmlFor="title" className="text-sm font-medium dark:text-gray-200">
-                    {t('form.pageTitle')}
-                  </Label>
-                  <Input
-                    id="title"
-                    value={state.title}
-                    onChange={(e) => updateTitle(e.target.value)}
-                    placeholder={t('form.pageTitlePlaceholder')}
-                    className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    aria-describedby="title-metrics"
-                    maxLength={limits.TITLE_CHAR_LIMIT * 1.5} // Allow some overflow for user awareness
-                  />
-                  <div id="title-metrics">
-                    <MetricsDisplay
-                      current={state.title.length}
-                      limit={limits.TITLE_CHAR_LIMIT}
-                      label={t('metrics.characters')}
-                      pixels={metrics.titlePixelWidth}
-                      pixelLimit={limits.TITLE_PIXEL_LIMIT}
-                      status={metrics.titleStatus}
-                    />
-                  </div>
-                </div>
+        {/* Device Preview Mode Toggle - Compact */}
+        <div className="mb-4 text-center">
+          <div className="inline-flex items-center bg-white dark:bg-gray-800 rounded-lg p-1 shadow-sm border dark:border-gray-700">
+            <Button
+              variant={state.viewMode === 'desktop' ? 'default' : 'ghost'}
+              onClick={() => updateViewMode('desktop')}
+              className="flex items-center space-x-1 px-3 py-1.5 text-sm"
+              aria-label={t('viewMode.desktop')}
+            >
+              <Monitor size={14} />
+              <span>{t('viewMode.desktop')}</span>
+            </Button>
+            <Button
+              variant={state.viewMode === 'mobile' ? 'default' : 'ghost'}
+              onClick={() => updateViewMode('mobile')}
+              className="flex items-center space-x-1 px-3 py-1.5 text-sm"
+              aria-label={t('viewMode.mobile')}
+            >
+              <Smartphone size={14} />
+              <span>{t('viewMode.mobile')}</span>
+            </Button>
+          </div>
+        </div>        {/* SEO Score Dashboard */}
+        <SEOScoreDashboard
+          key={`seo-dashboard-${t('app.title')}`}
+          title={state.title}
+          description={state.description}
+          url={state.url}
+          keywords={keywordArray}
+        />        {/* Main Grid Layout - 3-column optimized layout */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">          {/* Left Column - Template Selector Only (3/12 = 25%) */}          <div className="xl:col-span-3 space-y-4">
+            {/* Template Selector - Compact */}
+            <div>
+              <TemplateSelector onSelectTemplate={handleTemplateSelect} />
+            </div>
+          </div>
 
-                {/* Description Input */}
-                <div className="space-y-2">
-                  <Label htmlFor="description" className="text-sm font-medium dark:text-gray-200">
-                    {t('form.metaDescription')}
-                  </Label>
-                  <Textarea
-                    id="description"
-                    value={state.description}
-                    onChange={(e) => updateDescription(e.target.value)}
-                    placeholder={t('form.metaDescriptionPlaceholder')}
-                    className="w-full h-20 resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    aria-describedby="description-metrics"
-                    maxLength={limits.DESCRIPTION_CHAR_LIMIT * 1.5}
+          {/* Middle Column - SERP Preview + Input Form (5/12 = 41.7%) */}
+          <div className="xl:col-span-5">
+            <section aria-label="Search result preview">
+              <Card className="dark:bg-gray-800 dark:border-gray-700 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2 dark:text-white">
+                    {state.viewMode === 'desktop' ? <Monitor size={20} /> : <Smartphone size={20} />}
+                    <span>{t('preview.title', { mode: t(`viewMode.${state.viewMode}`) })}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  {/* SERP Result Display */}
+                  <SERPResultDisplay
+                    title={state.title}
+                    description={state.description}
+                    url={state.url}
+                    viewMode={state.viewMode}
+                    titlePixelLimit={limits.TITLE_PIXEL_LIMIT}
+                    descriptionPixelLimit={limits.DESCRIPTION_PIXEL_LIMIT}
+                    keywords={keywordArray}
                   />
-                  <div id="description-metrics">
-                    <MetricsDisplay
-                      current={state.description.length}
-                      limit={limits.DESCRIPTION_CHAR_LIMIT}
-                      label={t('metrics.characters')}
-                      pixels={metrics.descriptionPixelWidth}
-                      pixelLimit={limits.DESCRIPTION_PIXEL_LIMIT}
-                      status={metrics.descriptionStatus}
-                    />
-                  </div>
-                </div>
-
-                {/* URL Input */}
-                <div className="space-y-2">
-                  <Label htmlFor="url" className="text-sm font-medium dark:text-gray-200">
-                    {t('form.pageUrl')}
-                  </Label>
-                  <Input
-                    id="url"
-                    type="url"
-                    value={state.url}
-                    onChange={(e) => updateUrl(e.target.value)}
-                    placeholder={t('form.pageUrlPlaceholder')}
-                    className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                  />
-                </div>
-
-                {/* Keywords Input */}
-                <div className="space-y-2">
-                  <Label htmlFor="keywords" className="text-sm font-medium dark:text-gray-200">
-                    {t('form.keywords')}
-                  </Label>
-                  <Input
-                    id="keywords"
-                    value={state.keywords}
-                    onChange={(e) => updateKeywords(e.target.value)}
-                    placeholder={t('form.keywordsPlaceholder')}
-                    className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-                    aria-describedby="keywords-helper"
-                  />
-                  <p id="keywords-helper" className="text-xs text-gray-500 dark:text-gray-400">
-                    {t('form.keywordsHelper')}
-                  </p>
-                  {keywordArray.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {keywordArray.map((keyword, index) => (
-                        <span
-                          key={index}
-                          className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded"
-                        >
-                          {keyword}
-                        </span>
-                      ))}
+                  
+                  {/* Separator */}
+                  <div className="border-t border-gray-200 dark:border-gray-600"></div>
+                  
+                  {/* Input Form Section - Now inside SERP Preview */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold dark:text-white">
+                      {t('form.title')}
+                    </h3>
+                    
+                    {/* Title Input */}
+                    <div className="space-y-2">
+                      <Label htmlFor="title" className="text-sm font-medium dark:text-gray-200">
+                        {t('form.pageTitle')}
+                      </Label>
+                      <Input
+                        id="title"
+                        value={state.title}
+                        onChange={(e) => updateTitle(e.target.value)}
+                        placeholder={t('form.pageTitlePlaceholder')}
+                        className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        aria-describedby="title-metrics"
+                        maxLength={limits.TITLE_CHAR_LIMIT * 1.5}
+                      />
+                      <div id="title-metrics">
+                        <MetricsDisplay
+                          current={state.title.length}
+                          limit={limits.TITLE_CHAR_LIMIT}
+                          label={t('metrics.characters')}
+                          pixels={metrics.titlePixelWidth}
+                          pixelLimit={limits.TITLE_PIXEL_LIMIT}
+                          status={metrics.titleStatus}
+                        />
+                        {/* Real-time suggestions */}
+                        {state.title.length > 0 && state.title.length < 30 && (
+                          <div className="mt-1 text-xs text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                            💡 {t('feedback.titleTooShort')}
+                          </div>
+                        )}
+                        {state.title.length > 60 && (
+                          <div className="mt-1 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
+                            ⚠️ {t('feedback.titleTooLong')}
+                          </div>
+                        )}
+                        {keywordArray.length > 0 && !keywordArray.some(k => state.title.toLowerCase().includes(k.toLowerCase())) && (
+                          <div className="mt-1 text-xs text-blue-600 dark:text-blue-400 flex items-center gap-1">
+                            🔍 {t('feedback.titleNeedsKeyword')}
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  )}
-                </div>
 
-                {/* Quick Tips */}
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border dark:border-blue-800">
-                  <h3 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
-                    {t('tips.title')}
-                  </h3>
-                  <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
-                    <li>• {t('tips.titleLimit', { limit: limits.TITLE_PIXEL_LIMIT })}</li>
-                    <li>• {t('tips.descriptionLimit', { limit: limits.DESCRIPTION_PIXEL_LIMIT })}</li>
-                    <li>• {t('tips.includeKeyword')}</li>
-                    <li>• {t('tips.compelling')}</li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>            {/* Meta Tag Generator */}
-            <MetaTagGenerator title={state.title} description={state.description} />
+                    {/* Description Input */}
+                    <div className="space-y-2">
+                      <Label htmlFor="description" className="text-sm font-medium dark:text-gray-200">
+                        {t('form.metaDescription')}
+                      </Label>
+                      <Textarea
+                        id="description"
+                        value={state.description}
+                        onChange={(e) => updateDescription(e.target.value)}
+                        placeholder={t('form.metaDescriptionPlaceholder')}
+                        className="w-full h-20 resize-none dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        aria-describedby="description-metrics"
+                        maxLength={limits.DESCRIPTION_CHAR_LIMIT * 1.5}
+                      />
+                      <div id="description-metrics">
+                        <MetricsDisplay
+                          current={state.description.length}
+                          limit={limits.DESCRIPTION_CHAR_LIMIT}
+                          label={t('metrics.characters')}
+                          pixels={metrics.descriptionPixelWidth}
+                          pixelLimit={limits.DESCRIPTION_PIXEL_LIMIT}
+                          status={metrics.descriptionStatus}
+                        />
+                        {/* Real-time suggestions */}
+                        {state.description.length > 0 && state.description.length < 120 && (
+                          <div className="mt-1 text-xs text-amber-600 dark:text-amber-400 flex items-center gap-1">
+                            💡 {t('feedback.descriptionTooShort')}
+                          </div>
+                        )}
+                        {state.description.length > 160 && (
+                          <div className="mt-1 text-xs text-red-600 dark:text-red-400 flex items-center gap-1">
+                            ⚠️ {t('feedback.descriptionTooLong')}
+                          </div>
+                        )}
+                        {keywordArray.length > 0 && !keywordArray.some(k => state.description.toLowerCase().includes(k.toLowerCase())) && (
+                          <div className="mt-1 text-xs text-blue-600 dark:text-blue-400 flex items-center gap-1">
+                            🔍 {t('feedback.descriptionNeedsKeyword')}
+                          </div>
+                        )}
+                      </div>
+                    </div>
 
-            {/* SEO Analysis Panel */}
-            <SEOAnalysisPanel
-              title={state.title}
-              description={state.description}
-              url={state.url}
-              keywords={keywordArray}
-            />
-          </section>
+                    {/* URL Input */}
+                    <div className="space-y-2">
+                      <Label htmlFor="url" className="text-sm font-medium dark:text-gray-200">
+                        {t('form.pageUrl')}
+                      </Label>
+                      <Input
+                        id="url"
+                        type="url"
+                        value={state.url}
+                        onChange={(e) => updateUrl(e.target.value)}
+                        placeholder={t('form.pageUrlPlaceholder')}
+                        className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      />
+                    </div>
 
-          {/* SERP Preview */}
-          <section aria-label="Search result preview">
-            <Card className="dark:bg-gray-800 dark:border-gray-700">
-              <CardHeader>
-                <CardTitle className="flex items-center space-x-2 dark:text-white">
-                  {state.viewMode === 'desktop' ? <Monitor size={20} /> : <Smartphone size={20} />}
-                  <span>{t('preview.title', { mode: t(`viewMode.${state.viewMode}`) })}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <SERPResultDisplay
-                  title={state.title}
-                  description={state.description}
-                  url={state.url}
-                  viewMode={state.viewMode}
-                  titlePixelLimit={limits.TITLE_PIXEL_LIMIT}
-                  descriptionPixelLimit={limits.DESCRIPTION_PIXEL_LIMIT}
-                  keywords={keywordArray}
-                />
-              </CardContent>
-            </Card>
-          </section>
+                    {/* Keywords Input */}
+                    <div className="space-y-2">
+                      <Label htmlFor="keywords" className="text-sm font-medium dark:text-gray-200">
+                        {t('form.keywords')}
+                      </Label>
+                      <Input
+                        id="keywords"
+                        value={state.keywords}
+                        onChange={(e) => updateKeywords(e.target.value)}
+                        placeholder={t('form.keywordsPlaceholder')}
+                        className="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        aria-describedby="keywords-helper"
+                      />
+                      <p id="keywords-helper" className="text-xs text-gray-500 dark:text-gray-400">
+                        {t('form.keywordsHelper')}
+                      </p>
+                      {keywordArray.length > 0 && (
+                        <div className="flex flex-wrap gap-1 mt-2">
+                          {keywordArray.map((keyword, index) => (
+                            <span
+                              key={index}
+                              className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded"
+                            >
+                              {keyword}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Quick Tips */}
+                    <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border dark:border-blue-800">
+                      <h3 className="font-medium text-blue-900 dark:text-blue-100 mb-2">
+                        {t('tips.title')}
+                      </h3>
+                      <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                        <li>• {t('tips.titleLimit', { limit: limits.TITLE_PIXEL_LIMIT })}</li>
+                        <li>• {t('tips.descriptionLimit', { limit: limits.DESCRIPTION_PIXEL_LIMIT })}</li>
+                        <li>• {t('tips.includeKeyword')}</li>
+                        <li>• {t('tips.compelling')}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </section>
+          </div>
+
+          {/* Right Column - SEO Analysis & Meta Tags (4/12 = 33.3%) */}
+          <div className="xl:col-span-4 space-y-4">
+            {/* SEO Analysis Panel - Compact */}
+            <div>
+              <SEOAnalysisPanel
+                title={state.title}
+                description={state.description}
+                url={state.url}
+                keywords={keywordArray}
+              />
+            </div>
+            
+            {/* Meta Tag Generator - Compact */}
+            <div>
+              <MetaTagGenerator title={state.title} description={state.description} />
+            </div>
+          </div>
         </div>
 
         {/* Hidden canvas for text measurement */}

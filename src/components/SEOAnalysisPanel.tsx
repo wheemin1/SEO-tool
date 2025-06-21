@@ -70,22 +70,24 @@ const SEOAnalysisPanel: React.FC<SEOAnalysisProps> = ({
     return { level: t('seoAnalysis.readability.levels.veryDifficult'), color: 'text-red-600' };
   };
 
-  const readabilityInfo = getReadabilityLevel(readabilityScore);
-
-  return (
-    <Card className="dark:bg-gray-800 dark:border-gray-700">
-      <CardHeader>        <CardTitle className="flex items-center space-x-2 dark:text-white">
-          <TrendingUp size={20} />
-          <span>{t('seoAnalysis.title')}</span>
+  const readabilityInfo = getReadabilityLevel(readabilityScore);  return (
+    <Card className="dark:bg-gray-800 dark:border-gray-700 shadow-xl border-l-4 border-l-orange-500 h-full">
+      <CardHeader className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border-b dark:border-gray-700">
+        <div className="flex items-center space-x-3">
+          <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+          <CardTitle className="flex items-center space-x-2 dark:text-white text-lg">
+            <TrendingUp size={20} />
+            <span>{t('seoAnalysis.title')}</span>
+          </CardTitle>
           <Badge
             variant="outline"
             className={`ml-auto ${getScoreColor(analysis.score)}`}
           >
             {t('seoAnalysis.overallScore')}: {analysis.score}/100
           </Badge>
-        </CardTitle>
+        </div>
       </CardHeader>
-      <CardContent className="space-y-6">        {/* Overall Score */}
+      <CardContent className="space-y-6 p-6 pb-8">{/* Overall Score */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium dark:text-gray-200">

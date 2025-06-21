@@ -1,13 +1,14 @@
-
 {
   "app": {
     "title": "SEO SERP 미리보기 도구",
     "subtitle": "Google 검색 결과에서 페이지가 어떻게 보일지 미리 확인하세요"
   },
   "viewMode": {
+    "title": "디바이스 미리보기 모드",
     "desktop": "데스크톱",
     "mobile": "모바일"
   },
+  "devicePreviewMode": "디바이스 미리보기 모드",
   "form": {
     "title": "SERP 데이터 편집",
     "pageTitle": "페이지 제목",
@@ -31,6 +32,14 @@
     "includeKeyword": "제목에 주요 키워드를 포함하세요",
     "compelling": "설명을 매력적이고 행동 유도적으로 작성하세요"
   },
+  "feedback": {
+    "titleTooShort": "제목을 더 구체적으로 작성하면 좋습니다 (30자 이상 권장)",
+    "titleTooLong": "제목이 너무 길어 검색결과에서 잘릴 수 있습니다",
+    "titleNeedsKeyword": "키워드를 제목에 포함시키면 SEO에 도움됩니다",
+    "descriptionTooShort": "설명을 더 자세히 작성하면 좋습니다 (120자 이상 권장)",
+    "descriptionTooLong": "설명이 너무 길어 검색결과에서 잘릴 수 있습니다",
+    "descriptionNeedsKeyword": "키워드를 설명에 자연스럽게 포함시켜보세요"
+  },
   "metaTags": {
     "title": "생성된 메타 태그",
     "copy": "복사",
@@ -43,7 +52,97 @@
     "titleCutoff": "제목 잘림:",
     "descriptionCutoff": "설명 잘림:",
     "truncated": "잘림",
-    "full": "전체"
+    "full": "전체"  },
+  "onboarding": {
+    "sampleData": "샘플 데이터 체험",
+    "reset": "초기화",
+    "helpTooltip": "Google 검색결과 미리보기 도구입니다"
+  },
+  "templates": {
+    "title": "빠른 시작 템플릿",
+    "subtitle": "템플릿을 클릭하여 업계별 SEO 필드를 즉시 채우세요",
+    "tip": {
+      "title": "프로 팁",
+      "description": "이 템플릿들은 다양한 업계에 최적화되어 있습니다. 시작점으로 사용하고 귀하의 특정 콘텐츠와 브랜드 보이스에 맞게 커스터마이징하세요."
+    },
+    "categories": {
+      "ecommerce": "전자상거래",
+      "business": "비즈니스",
+      "education": "교육",
+      "health": "건강",
+      "automotive": "자동차",
+      "realestate": "부동산",
+      "food": "음식",
+      "creative": "크리에이티브"
+    },
+    "industries": {
+      "retail": "소매업",
+      "professional": "전문 서비스",
+      "education": "교육",
+      "healthcare": "의료",
+      "automotive": "자동차",
+      "realestate": "부동산",
+      "food": "음식 & 음료",
+      "photography": "사진"
+    },
+    "examples": {
+      "ecommerce": {
+        "name": "전자상거래 상품",
+        "title": "프리미엄 무선 헤드폰 - 2025년 최고의 사운드 품질",
+        "description": "노이즈 캔슬링, 30시간 배터리 수명, 크리스털 클리어 오디오를 제공하는 최고 평점 무선 헤드폰을 만나보세요. 무료 배송 및 2년 보증 포함.",
+        "url": "https://example-store.com/wireless-headphones-premium",
+        "keywords": "무선 헤드폰, 노이즈 캔슬링, 프리미엄 오디오, 블루투스 헤드폰"
+      },
+      "business": {
+        "name": "비즈니스 서비스",
+        "title": "디지털 마케팅 에이전시 | SEO & PPC 전문가 | 비즈니스 성장",
+        "description": "전문 디지털 마케팅 서비스로 온라인 존재감을 향상시키세요. SEO, PPC, 소셜 미디어 마케팅 전문. 무료 상담을 받아보세요!",
+        "url": "https://marketing-agency.com/services",
+        "keywords": "디지털 마케팅, SEO 서비스, PPC 광고, 소셜 미디어 마케팅"
+      },
+      "education": {
+        "name": "교육 콘텐츠",
+        "title": "파이썬 프로그래밍 배우기 - 2025년 완전 초보자 과정",
+        "description": "포괄적인 과정으로 파이썬 프로그래밍을 처음부터 마스터하세요. 실습 프로젝트, 실제 예제, 평생 액세스 포함. 지금 코딩을 시작하세요!",
+        "url": "https://coding-academy.com/python-course",
+        "keywords": "파이썬 프로그래밍, 코딩 과정, 프로그래밍 튜토리얼, 코딩 배우기"
+      },
+      "health": {
+        "name": "건강 & 웰니스",
+        "title": "면역력 자연스럽게 높이는 10가지 과학적 방법",
+        "description": "자연스러운 접근법으로 면역 시스템을 강화하는 검증된 방법을 알아보세요. 영양, 운동, 수면, 라이프스타일 변화에 대한 전문가 조언.",
+        "url": "https://wellness-blog.com/boost-immune-system-naturally",
+        "keywords": "면역 시스템, 자연 건강, 웰니스 팁, 건강한 라이프스타일"
+      },
+      "automotive": {
+        "name": "자동차 리뷰",
+        "title": "2025 테슬라 모델 3 리뷰 | 성능, 주행거리 & 기능",
+        "description": "성능 사양, 주행 거리, 내부 기능, 가격을 다루는 2025 테슬라 모델 3의 완전한 리뷰. 왜 최고의 전기 세단인지 확인하세요.",
+        "url": "https://auto-reviews.com/tesla-model-3-2025-review",
+        "keywords": "테슬라 모델 3, 전기차 리뷰, EV 성능, 테슬라 2025"
+      },
+      "realestate": {
+        "name": "부동산 매물",
+        "title": "럭셔리 4침실 주택 판매 | 시내 위치 | $750K",
+        "description": "최고의 시내 위치에 있는 멋진 4침실, 3욕실 주택. 현대적인 주방, 하드우드 바닥, 개인 정원 특징. 오늘 관람 일정을 예약하세요!",
+        "url": "https://realty-pro.com/listings/luxury-downtown-home-4br",
+        "keywords": "럭셔리 주택 판매, 4침실 주택, 시내 부동산, 모던 하우스"
+      },
+      "food": {
+        "name": "음식 & 레시피",
+        "title": "간편한 30분 치킨 알프레도 레시피 | 크리미하고 맛있는",
+        "description": "집에서 단 30분 만에 레스토랑 품질의 치킨 알프레도를 만드는 법을 배우세요. 간단한 재료로 놀라운 결과를 얻는 크리미하고 진한 파스타 요리.",
+        "url": "https://recipe-hub.com/easy-chicken-alfredo-30-minutes",
+        "keywords": "치킨 알프레도 레시피, 간편 파스타 레시피, 30분 요리, 수제 알프레도"
+      },
+      "photography": {
+        "name": "사진 서비스",
+        "title": "전문 웨딩 포토그래피 | 완벽한 하루를 담아드립니다",
+        "description": "자연스럽고 감동적인 순간을 전문으로 하는 수상 경력의 웨딩 포토그래퍼. 개인 맞춤 패키지와 놀라운 결과로 삼주 지역에 서비스 제공.",
+        "url": "https://wedding-photos.com/services",
+        "keywords": "웨딩 포토그래피, 전문 사진사, 웨딩 사진, 브라이덜 포토그래피"
+      }
+    }
   },
   "theme": {
     "light": "라이트",
@@ -118,6 +217,21 @@
       "useNumbers": "제목을 더 매력적으로 만들기 위해 숫자나 통계를 사용하는 것을 고려하세요",
       "avoidKeywordStuffing": "스팸으로 표시되지 않도록 키워드 밀도를 줄이세요",
       "fixUrl": "URL이 올바르게 형식화되고 접근 가능한지 확인하세요"
-    }
+    }  },
+  "seoScore": {
+    "dashboardTitle": "SEO 점수 대시보드",
+    "title": "제목 최적화",
+    "description": "설명 최적화",
+    "keywords": "키워드 활용", 
+    "overall": "전체 점수",
+    "excellent": "우수",
+    "good": "양호",
+    "needsWork": "개선 필요"
+  },
+  "sampleData": {
+    "title": "🚀 최고의 SEO 도구로 검색 순위 올리기 | 무료 체험",
+    "description": "구글 검색 결과에서 당신의 웹사이트가 어떻게 보이는지 실시간으로 확인하세요. 제목과 메타 설명을 최적화하여 클릭률을 높이고 더 많은 방문자를 유치하세요.",
+    "url": "https://your-awesome-website.com/seo-tools",
+    "keywords": "SEO 도구, 검색 최적화, 메타 태그, SERP 미리보기"
   }
 }

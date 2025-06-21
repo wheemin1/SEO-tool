@@ -1,10 +1,9 @@
-
 {
   "app": {
     "title": "Herramienta de Vista Previa SEO SERP",
     "subtitle": "Previsualiza cómo aparecerá tu página en los resultados de búsqueda de Google"
-  },
-  "viewMode": {
+  },  "viewMode": {
+    "title": "Modo de Vista Previa del Dispositivo",
     "desktop": "Escritorio",
     "mobile": "Móvil"
   },
@@ -23,13 +22,20 @@
   "metrics": {
     "characters": "Caracteres",
     "pixels": "Píxeles"
-  },
-  "tips": {
+  },  "tips": {
     "title": "Consejos Rápidos:",
     "titleLimit": "Mantén los títulos bajo 60 caracteres y {{limit}}px de ancho",
     "descriptionLimit": "Mantén las descripciones bajo 160 caracteres y {{limit}}px de ancho",
     "includeKeyword": "Incluye tu palabra clave principal en el título",
     "compelling": "Haz las descripciones atractivas y orientadas a la acción"
+  },
+  "feedback": {
+    "titleTooShort": "Considera hacer tu título más específico (se recomiendan 30+ caracteres)",
+    "titleTooLong": "El título puede ser truncado en los resultados de búsqueda",
+    "titleNeedsKeyword": "Incluir palabras clave en tu título ayuda con el SEO",
+    "descriptionTooShort": "Considera agregar más detalle a tu descripción (se recomiendan 120+ caracteres)",
+    "descriptionTooLong": "La descripción puede ser truncada en los resultados de búsqueda",
+    "descriptionNeedsKeyword": "Intenta incluir naturalmente palabras clave en tu descripción"
   },
   "metaTags": {
     "title": "Etiquetas Meta Generadas",
@@ -37,13 +43,102 @@
     "copied": "¡Copiado!",
     "copySuccess": "Etiquetas meta copiadas al portapapeles",
     "copyError": "Error al copiar las etiquetas meta"
-  },
-  "preview": {
+  },  "preview": {
     "title": "Vista Previa SERP ({{mode}})",
     "titleCutoff": "Corte del título:",
     "descriptionCutoff": "Corte de la descripción:",
     "truncated": "Truncado",
     "full": "Completo"
+  },  "onboarding": {
+    "sampleData": "Probar Datos de Muestra",
+    "reset": "Restablecer",
+    "helpTooltip": "Esta herramienta te ayuda a previsualizar cómo aparecerá tu página en los resultados de búsqueda de Google"
+  },
+  "templates": {
+    "title": "Plantillas de Inicio Rápido",
+    "subtitle": "Haz clic en cualquier plantilla para completar instantáneamente tus campos SEO con ejemplos específicos de la industria",
+    "tip": {
+      "title": "Consejo Profesional",
+      "description": "Estas plantillas están optimizadas para diferentes industrias. Úsalas como punto de partida y personalízalas para que coincidan con tu contenido específico y voz de marca."
+    },
+    "categories": {
+      "ecommerce": "Comercio Electrónico",
+      "business": "Negocios",
+      "education": "Educación",
+      "health": "Salud",
+      "automotive": "Automotriz",
+      "realestate": "Bienes Raíces",
+      "food": "Comida",
+      "creative": "Creativo"
+    },
+    "industries": {
+      "retail": "Comercio Minorista",
+      "professional": "Servicios Profesionales",
+      "education": "Educación",
+      "healthcare": "Atención Médica",
+      "automotive": "Automotriz",
+      "realestate": "Bienes Raíces",
+      "food": "Alimentos y Bebidas",
+      "photography": "Fotografía"
+    },
+    "examples": {
+      "ecommerce": {
+        "name": "Producto E-commerce",
+        "title": "Auriculares Inalámbricos Premium - Mejor Calidad de Sonido 2025",
+        "description": "Descubre nuestros auriculares inalámbricos mejor valorados con cancelación de ruido, 30 horas de batería y audio cristalino. Envío gratis y garantía de 2 años incluida.",
+        "url": "https://example-store.com/wireless-headphones-premium",
+        "keywords": "auriculares inalámbricos, cancelación de ruido, audio premium, auriculares bluetooth"
+      },
+      "business": {
+        "name": "Servicio Empresarial",
+        "title": "Agencia de Marketing Digital | Expertos en SEO y PPC | Haz Crecer tu Negocio",
+        "description": "Transforma tu presencia online con nuestros servicios expertos de marketing digital. Especializados en SEO, PPC y marketing en redes sociales. ¡Obtén tu consulta gratuita hoy!",
+        "url": "https://marketing-agency.com/services",
+        "keywords": "marketing digital, servicios SEO, publicidad PPC, marketing en redes sociales"
+      },
+      "education": {
+        "name": "Contenido Educativo",
+        "title": "Aprende Programación Python - Curso Completo para Principiantes 2025",
+        "description": "Domina la programación Python desde cero con nuestro curso integral. Incluye proyectos prácticos, ejemplos del mundo real y acceso de por vida. ¡Empieza a programar hoy!",
+        "url": "https://coding-academy.com/python-course",
+        "keywords": "programación python, curso de programación, tutorial de programación, aprender a programar"
+      },
+      "health": {
+        "name": "Salud y Bienestar",
+        "title": "10 Formas Científicamente Probadas de Fortalecer tu Sistema Inmune Naturalmente",
+        "description": "Descubre métodos probados para fortalecer tu sistema inmunológico con enfoques naturales. Consejos expertos sobre nutrición, ejercicio, sueño y cambios de estilo de vida para mejor salud.",
+        "url": "https://wellness-blog.com/boost-immune-system-naturally",
+        "keywords": "sistema inmunológico, salud natural, consejos de bienestar, estilo de vida saludable"
+      },
+      "automotive": {
+        "name": "Reseña Automotriz",
+        "title": "Reseña Tesla Model 3 2025 | Rendimiento, Autonomía y Características",
+        "description": "Reseña completa del Tesla Model 3 2025 cubriendo especificaciones de rendimiento, autonomía de manejo, características interiores y precios. Ve por qué es el sedán eléctrico líder.",
+        "url": "https://auto-reviews.com/tesla-model-3-2025-review",
+        "keywords": "Tesla Model 3, reseña auto eléctrico, rendimiento EV, Tesla 2025"
+      },
+      "realestate": {
+        "name": "Listado Inmobiliario",
+        "title": "Casa de Lujo 4 Habitaciones en Venta | Ubicación Centro | $750K",
+        "description": "Impresionante casa de 4 habitaciones, 3 baños en ubicación privilegiada del centro. Cuenta con cocina moderna, pisos de madera y jardín privado. ¡Agenda tu visita hoy!",
+        "url": "https://realty-pro.com/listings/luxury-downtown-home-4br",
+        "keywords": "casa de lujo en venta, casa 4 habitaciones, bienes raíces centro, casa moderna"
+      },
+      "food": {
+        "name": "Comida y Receta",
+        "title": "Receta Fácil de Pollo Alfredo en 30 Minutos | Cremoso y Delicioso",
+        "description": "Aprende a hacer pollo alfredo de calidad restaurante en casa en solo 30 minutos. Este cremoso y rico plato de pasta usa ingredientes simples para resultados increíbles.",
+        "url": "https://recipe-hub.com/easy-chicken-alfredo-30-minutes",
+        "keywords": "receta pollo alfredo, receta pasta fácil, comidas 30 minutos, alfredo casero"
+      },
+      "photography": {
+        "name": "Servicio de Fotografía",
+        "title": "Fotografía Profesional de Bodas | Captura tu Día Perfecto",
+        "description": "Fotógrafo de bodas galardonado especializado en momentos naturales y emotivos. Sirviendo el área tri-estatal con paquetes personalizados y resultados impresionantes.",
+        "url": "https://wedding-photos.com/services",
+        "keywords": "fotografía de bodas, fotógrafo profesional, fotos de boda, fotografía nupcial"
+      }
+    }
   },
   "theme": {
     "light": "Claro",
@@ -118,6 +213,21 @@
       "useNumbers": "Considera usar números o estadísticas para hacer tu título más atractivo",
       "avoidKeywordStuffing": "Reduce la densidad de palabras clave para evitar ser marcado como spam",
       "fixUrl": "Asegúrate de que tu URL esté correctamente formateada y sea accesible"
-    }
+    }  },
+  "seoScore": {
+    "dashboardTitle": "Panel de Puntuación SEO",
+    "title": "Optimización del Título",
+    "description": "Optimización de Descripción",
+    "keywords": "Uso de Palabras Clave", 
+    "overall": "Puntuación General",
+    "excellent": "Excelente",
+    "good": "Bueno",
+    "needsWork": "Necesita Mejoras"
+  },
+  "sampleData": {
+    "title": "🚀 Mejores Herramientas SEO para Aumentar Rankings | Prueba Gratis",
+    "description": "Ve cómo aparece tu sitio web en los resultados de búsqueda de Google en tiempo real. Optimiza títulos y meta descripciones para aumentar la tasa de clics y atraer más visitantes.",
+    "url": "https://your-awesome-website.com/seo-tools",
+    "keywords": "herramientas SEO, optimización de búsqueda, meta tags, vista previa SERP"
   }
 }

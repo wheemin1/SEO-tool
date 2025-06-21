@@ -1,13 +1,14 @@
-
 {
   "app": {
     "title": "SEO Preview Tool - Google Search Results Preview",
     "subtitle": "Free Google search results preview tool to see how your website appears in SERP. Test meta descriptions and title tags with our SERP simulator."
   },
   "viewMode": {
+    "title": "Device Preview Mode",
     "desktop": "Desktop",
     "mobile": "Mobile"
   },
+  "devicePreviewMode": "Device Preview Mode",
   "form": {
     "title": "Edit Your SERP Data",
     "pageTitle": "Page Title",
@@ -31,6 +32,14 @@
     "includeKeyword": "Include your main keyword in the title",
     "compelling": "Make descriptions compelling and actionable"
   },
+  "feedback": {
+    "titleTooShort": "Consider making your title more specific (30+ characters recommended)",
+    "titleTooLong": "Title may be truncated in search results",
+    "titleNeedsKeyword": "Including keywords in your title helps with SEO",
+    "descriptionTooShort": "Consider adding more detail to your description (120+ characters recommended)",
+    "descriptionTooLong": "Description may be truncated in search results",
+    "descriptionNeedsKeyword": "Try naturally including keywords in your description"
+  },
   "metaTags": {
     "title": "Generated Meta Tags",
     "copy": "Copy",
@@ -43,7 +52,97 @@
     "titleCutoff": "Title cutoff:",
     "descriptionCutoff": "Description cutoff:",
     "truncated": "Truncated",
-    "full": "Full"
+    "full": "Full"  },
+  "onboarding": {
+    "sampleData": "Try Sample Data",
+    "reset": "Reset",
+    "helpTooltip": "This tool helps you preview how your page will appear in Google search results"
+  },
+  "templates": {
+    "title": "Quick Start Templates",
+    "subtitle": "Click any template to instantly populate your SEO fields with industry-specific examples",
+    "tip": {
+      "title": "Pro Tip",
+      "description": "These templates are optimized for different industries. Use them as starting points and customize to match your specific content and brand voice."
+    },
+    "categories": {
+      "ecommerce": "E-commerce",
+      "business": "Business",
+      "education": "Education",
+      "health": "Health",
+      "automotive": "Automotive",
+      "realestate": "Real Estate",
+      "food": "Food",
+      "creative": "Creative"
+    },
+    "industries": {
+      "retail": "Retail",
+      "professional": "Professional Services",
+      "education": "Education",
+      "healthcare": "Healthcare",
+      "automotive": "Automotive",
+      "realestate": "Real Estate",
+      "food": "Food & Beverage",
+      "photography": "Photography"
+    },
+    "examples": {
+      "ecommerce": {
+        "name": "E-commerce Product",
+        "title": "Premium Wireless Headphones - Best Sound Quality 2025",
+        "description": "Discover our top-rated wireless headphones with noise cancellation, 30-hour battery life, and crystal-clear audio. Free shipping & 2-year warranty included.",
+        "url": "https://example-store.com/wireless-headphones-premium",
+        "keywords": "wireless headphones, noise cancellation, premium audio, bluetooth headphones"
+      },
+      "business": {
+        "name": "Business Service",
+        "title": "Digital Marketing Agency | SEO & PPC Experts | Grow Your Business",
+        "description": "Transform your online presence with our expert digital marketing services. Specializing in SEO, PPC, and social media marketing. Get your free consultation today!",
+        "url": "https://marketing-agency.com/services",
+        "keywords": "digital marketing, SEO services, PPC advertising, social media marketing"
+      },
+      "education": {
+        "name": "Educational Content",
+        "title": "Learn Python Programming - Complete Beginner Course 2025",
+        "description": "Master Python programming from scratch with our comprehensive course. Includes hands-on projects, real-world examples, and lifetime access. Start coding today!",
+        "url": "https://coding-academy.com/python-course",
+        "keywords": "python programming, coding course, programming tutorial, learn to code"
+      },
+      "health": {
+        "name": "Health & Wellness",
+        "title": "10 Science-Backed Ways to Boost Your Immune System Naturally",
+        "description": "Discover proven methods to strengthen your immune system with natural approaches. Expert tips on nutrition, exercise, sleep, and lifestyle changes for better health.",
+        "url": "https://wellness-blog.com/boost-immune-system-naturally",
+        "keywords": "immune system, natural health, wellness tips, healthy lifestyle"
+      },
+      "automotive": {
+        "name": "Automotive Review",
+        "title": "2025 Tesla Model 3 Review | Performance, Range & Features",
+        "description": "Complete review of the 2025 Tesla Model 3 covering performance specs, driving range, interior features, and pricing. See why it's the top electric sedan.",
+        "url": "https://auto-reviews.com/tesla-model-3-2025-review",
+        "keywords": "Tesla Model 3, electric car review, EV performance, Tesla 2025"
+      },
+      "realestate": {
+        "name": "Real Estate Listing",
+        "title": "Luxury 4BR Home for Sale | Downtown Location | $750K",
+        "description": "Stunning 4-bedroom, 3-bathroom home in prime downtown location. Features modern kitchen, hardwood floors, and private garden. Schedule your viewing today!",
+        "url": "https://realty-pro.com/listings/luxury-downtown-home-4br",
+        "keywords": "luxury home for sale, 4 bedroom house, downtown real estate, modern home"
+      },
+      "food": {
+        "name": "Food & Recipe",
+        "title": "Easy 30-Minute Chicken Alfredo Recipe | Creamy & Delicious",
+        "description": "Learn to make restaurant-quality chicken alfredo at home in just 30 minutes. This creamy, rich pasta dish uses simple ingredients for amazing results.",
+        "url": "https://recipe-hub.com/easy-chicken-alfredo-30-minutes",
+        "keywords": "chicken alfredo recipe, easy pasta recipe, 30 minute meals, homemade alfredo"
+      },
+      "photography": {
+        "name": "Photography Service",
+        "title": "Professional Wedding Photography | Capture Your Perfect Day",
+        "description": "Award-winning wedding photographer specializing in natural, emotional moments. Serving the tri-state area with personalized packages and stunning results.",
+        "url": "https://wedding-photos.com/services",
+        "keywords": "wedding photography, professional photographer, wedding photos, bridal photography"
+      }
+    }
   },
   "theme": {
     "light": "Light",
@@ -118,6 +217,21 @@
       "useNumbers": "Consider using numbers or statistics to make your title more compelling",
       "avoidKeywordStuffing": "Reduce keyword density to avoid being flagged as spam",
       "fixUrl": "Ensure your URL is properly formatted and accessible"
-    }
+    }  },
+  "seoScore": {
+    "dashboardTitle": "SEO Score Dashboard",
+    "title": "Title Optimization",
+    "description": "Description Optimization",
+    "keywords": "Keyword Usage",
+    "overall": "Overall Score",
+    "excellent": "Excellent",
+    "good": "Good", 
+    "needsWork": "Needs Work"
+  },
+  "sampleData": {
+    "title": "🚀 Best SEO Tools to Boost Search Rankings | Free Trial",
+    "description": "See how your website appears in Google search results in real-time. Optimize titles and meta descriptions to increase click-through rates and attract more visitors.",
+    "url": "https://your-awesome-website.com/seo-tools",
+    "keywords": "SEO tools, search optimization, meta tags, SERP preview"
   }
 }

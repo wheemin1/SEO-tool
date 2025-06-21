@@ -1,10 +1,9 @@
-
 {
   "app": {
     "title": "SEO SERP 预览工具",
     "subtitle": "预览您的页面在 Google 搜索结果中的显示效果"
-  },
-  "viewMode": {
+  },  "viewMode": {
+    "title": "设备预览模式",
     "desktop": "桌面",
     "mobile": "移动"
   },
@@ -23,13 +22,20 @@
   "metrics": {
     "characters": "字符",
     "pixels": "像素"
-  },
-  "tips": {
+  },  "tips": {
     "title": "快速提示:",
     "titleLimit": "标题保持在60个字符以下和{{limit}}px宽度以下",
     "descriptionLimit": "描述保持在160个字符以下和{{limit}}px宽度以下",
     "includeKeyword": "在标题中包含您的主要关键词",
     "compelling": "使描述引人注目且具有号召性"
+  },
+  "feedback": {
+    "titleTooShort": "建议让标题更具体一些（推荐30个字符以上）",
+    "titleTooLong": "标题可能在搜索结果中被截断",
+    "titleNeedsKeyword": "在标题中包含关键词有助于SEO",
+    "descriptionTooShort": "建议让描述更详细一些（推荐120个字符以上）",
+    "descriptionTooLong": "描述可能在搜索结果中被截断",
+    "descriptionNeedsKeyword": "尝试在描述中自然地包含关键词"
   },
   "metaTags": {
     "title": "生成的元标签",
@@ -42,8 +48,97 @@
     "title": "SERP 预览（{{mode}}）",
     "titleCutoff": "标题截断:",
     "descriptionCutoff": "描述截断:",
-    "truncated": "截断",
-    "full": "完整"
+    "truncated": "截断",    "full": "完整"
+  },  "onboarding": {
+    "sampleData": "尝试示例数据",
+    "reset": "重置", 
+    "helpTooltip": "此工具帮助您预览页面在Google搜索结果中的显示效果"
+  },
+  "templates": {
+    "title": "快速开始模板",
+    "subtitle": "点击任何模板即可立即填充行业特定的SEO字段",
+    "tip": {
+      "title": "专业提示",
+      "description": "这些模板针对不同行业进行了优化。将它们用作起点，并根据您的特定内容和品牌声音进行自定义。"
+    },
+    "categories": {
+      "ecommerce": "电子商务",
+      "business": "商务",
+      "education": "教育",
+      "health": "健康",
+      "automotive": "汽车",
+      "realestate": "房地产",
+      "food": "美食",
+      "creative": "创意"
+    },
+    "industries": {
+      "retail": "零售",
+      "professional": "专业服务",
+      "education": "教育",
+      "healthcare": "医疗保健",
+      "automotive": "汽车",
+      "realestate": "房地产",
+      "food": "食品饮料",
+      "photography": "摄影"
+    },
+    "examples": {
+      "ecommerce": {
+        "name": "电商产品",
+        "title": "高端无线耳机 - 2025年最佳音质",
+        "description": "探索我们评分最高的无线耳机，具备降噪功能、30小时续航和清晰音质。免费送货及2年保修。",
+        "url": "https://example-store.com/wireless-headphones-premium",
+        "keywords": "无线耳机, 降噪, 高端音频, 蓝牙耳机"
+      },
+      "business": {
+        "name": "商务服务",
+        "title": "数字营销代理 | SEO和PPC专家 | 助力业务增长",
+        "description": "通过我们专业的数字营销服务改变您的在线影响力。专业提供SEO、PPC和社交媒体营销。立即获取免费咨询！",
+        "url": "https://marketing-agency.com/services",
+        "keywords": "数字营销, SEO服务, PPC广告, 社交媒体营销"
+      },
+      "education": {
+        "name": "教育内容",
+        "title": "学习Python编程 - 2025年完整初学者课程",
+        "description": "通过我们的综合课程从零开始掌握Python编程。包含实操项目、真实案例和终身访问权限。立即开始编程！",
+        "url": "https://coding-academy.com/python-course",
+        "keywords": "Python编程, 编程课程, 编程教程, 学习编程"
+      },
+      "health": {
+        "name": "健康养生",
+        "title": "自然提升免疫力的10种科学方法",
+        "description": "发现通过自然方法增强免疫系统的经过验证的方法。营养、运动、睡眠和生活方式改变的专家建议。",
+        "url": "https://wellness-blog.com/boost-immune-system-naturally",
+        "keywords": "免疫系统, 自然健康, 养生贴士, 健康生活方式"
+      },
+      "automotive": {
+        "name": "汽车评测",
+        "title": "2025年特斯拉Model 3评测 | 性能、续航和功能",
+        "description": "全面评测2025年特斯拉Model 3的性能规格、续航里程、内饰功能和价格。了解为什么它是顶级电动轿车。",
+        "url": "https://auto-reviews.com/tesla-model-3-2025-review",
+        "keywords": "特斯拉Model 3, 电动车评测, 电动车性能, 特斯拉2025"
+      },
+      "realestate": {
+        "name": "房产信息",
+        "title": "豪华4卧室住宅出售 | 市中心位置 | $750K",
+        "description": "位于黄金市中心地段的精美4卧室3浴室住宅。配备现代厨房、硬木地板和私人花园。立即预约看房！",
+        "url": "https://realty-pro.com/listings/luxury-downtown-home-4br",
+        "keywords": "豪华住宅出售, 4卧室住宅, 市中心房产, 现代住宅"
+      },
+      "food": {
+        "name": "美食食谱",
+        "title": "简易30分钟奶油鸡肉意面食谱 | 香浓美味",
+        "description": "学习在家30分钟内制作餐厅品质的奶油鸡肉意面。这道香浓丰富的意面菜使用简单食材获得惊人效果。",
+        "url": "https://recipe-hub.com/easy-chicken-alfredo-30-minutes",
+        "keywords": "奶油鸡肉意面食谱, 简易意面食谱, 30分钟美食, 自制奶油意面"
+      },
+      "photography": {
+        "name": "摄影服务",
+        "title": "专业婚礼摄影 | 捕捉您的完美一天",
+        "description": "获奖婚礼摄影师专门拍摄自然、感人的瞬间。为三州地区提供个性化套餐和出色成果。",
+        "url": "https://wedding-photos.com/services",
+        "keywords": "婚礼摄影, 专业摄影师, 婚礼照片, 新娘摄影"
+      }
+    }
   },
   "theme": {
     "light": "浅色",
@@ -118,6 +213,21 @@
       "useNumbers": "考虑使用数字或统计数据使您的标题更具吸引力",
       "avoidKeywordStuffing": "减少关键词密度以避免被标记为垃圾邮件",
       "fixUrl": "确保您的URL格式正确且可访问"
-    }
+    }  },
+  "seoScore": {
+    "dashboardTitle": "SEO评分仪表板",
+    "title": "标题优化",
+    "description": "描述优化",
+    "keywords": "关键词使用",
+    "overall": "总体评分",
+    "excellent": "优秀",
+    "good": "良好",
+    "needsWork": "需要改进"
+  },
+  "sampleData": {
+    "title": "🚀 最佳SEO工具提升搜索排名 | 免费试用",
+    "description": "实时查看您的网站在Google搜索结果中的显示效果。优化标题和元描述以提高点击率并吸引更多访客。",
+    "url": "https://your-awesome-website.com/seo-tools",
+    "keywords": "SEO工具, 搜索优化, 元标签, SERP预览"
   }
 }

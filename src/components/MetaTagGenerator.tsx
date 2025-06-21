@@ -40,10 +40,15 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ title, description 
   };
 
   return (
-    <Card className="dark:bg-gray-800 dark:border-gray-700">
-      <CardHeader>
-        <CardTitle className="flex items-center justify-between dark:text-white">
-          {t('metaTags.title')}
+    <Card className="dark:bg-gray-800 dark:border-gray-700 shadow-xl border-l-4 border-l-teal-500 h-full">
+      <CardHeader className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 border-b dark:border-gray-700">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div className="w-2 h-2 bg-teal-500 rounded-full"></div>
+            <CardTitle className="dark:text-white text-lg">
+              {t('metaTags.title')}
+            </CardTitle>
+          </div>
           <Button
             onClick={handleCopy}
             size="sm"
@@ -54,9 +59,9 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ title, description 
             {copied ? <Check size={16} /> : <Copy size={16} />}
             <span>{copied ? t('metaTags.copied') : t('metaTags.copy')}</span>
           </Button>
-        </CardTitle>
+        </div>
       </CardHeader>
-      <CardContent>
+      <CardContent className="space-y-6 p-6 pb-8">
         <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg border dark:border-gray-600">
           <pre className="text-sm text-gray-800 dark:text-gray-200 whitespace-pre-wrap font-mono">
             {generateMetaTags()}

@@ -34,19 +34,29 @@ export const highlightKeywords = (
   // Split text by keywords while preserving the delimiters
   const parts = text.split(regex);
 
-  return parts.map((part, index) => {
-    // Check if this part is a keyword (case-insensitive comparison)
+  // Convert to JSX array
+  const elements = [];
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    if (!part) continue;
+    
+    // Check if this part is a keyword
     const isKeyword = validKeywords.some(keyword => {
       const keywordRegex = new RegExp(`^${keyword}$`, caseSensitive ? '' : 'i');
       return keywordRegex.test(part);
     });
     
-    return isKeyword ? (
-      <Highlight key={index}>{part}</Highlight>
-    ) : (
-      <React.Fragment key={index}>{part}</React.Fragment>
-    );
-  });
+    if (isKeyword) {
+      elements.push(
+        <Highlight key={i}>{part}</Highlight>
+      );
+    } else {
+      elements.push(part);
+    }
+  }
+
+  // Wrap in a span to avoid fragment issues
+  return <span>{elements}</span>;
 };
 
 // Advanced highlighting with partial matches
