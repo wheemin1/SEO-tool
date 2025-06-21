@@ -40,6 +40,50 @@
     "descriptionTooLong": "Description may be truncated in search results",
     "descriptionNeedsKeyword": "Try naturally including keywords in your description"
   },
+  "onboarding": {
+    "helpTooltip": "Help and Guide",
+    "sampleData": "Sample Data", 
+    "reset": "Reset",
+    "progress": "Progress",
+    "skip": "Skip",
+    "next": "Next",
+    "start": "Get Started!",
+    "step1": {
+      "title": "Choose Template",
+      "description": "Select an industry-specific template from the left to get started quickly"
+    },
+    "step2": {
+      "title": "Edit Content",
+      "description": "Modify your title, description, and URL in the center section"
+    },
+    "step3": {
+      "title": "Live Preview",
+      "description": "See how your page will appear in search results in real-time"
+    },
+    "step4": {
+      "title": "SEO Analysis",
+      "description": "Check your SEO score and improvement suggestions on the right"
+    }
+  },
+  "quickStart": {
+    "title": "Perfect SEO in 3 Minutes!",
+    "subtitle": "First time here? Start with our simple guide to get up and running quickly!",
+    "startGuide": "Start Step-by-Step Guide",
+    "quickStart": "Jump Right In",
+    "guarantee": "Free • No Registration • Ready to Use",
+    "step1": {
+      "title": "Choose Template",
+      "description": "Industry-optimized templates"
+    },
+    "step2": {
+      "title": "Edit Content",
+      "description": "Customize title, description, URL"
+    },
+    "step3": {
+      "title": "Check SEO",
+      "description": "Real-time analysis & optimization"
+    }
+  },
   "metaTags": {
     "title": "Generated Meta Tags",
     "copy": "Copy",
@@ -53,11 +97,6 @@
     "descriptionCutoff": "Description cutoff:",
     "truncated": "Truncated",
     "full": "Full"  },
-  "onboarding": {
-    "sampleData": "Try Sample Data",
-    "reset": "Reset",
-    "helpTooltip": "This tool helps you preview how your page will appear in Google search results"
-  },
   "templates": {
     "title": "Quick Start Templates",
     "subtitle": "Click any template to instantly populate your SEO fields with industry-specific examples",

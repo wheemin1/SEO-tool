@@ -40,23 +40,49 @@
     "descriptionTooLong": "설명이 너무 길어 검색결과에서 잘릴 수 있습니다",
     "descriptionNeedsKeyword": "키워드를 설명에 자연스럽게 포함시켜보세요"
   },
-  "metaTags": {
-    "title": "생성된 메타 태그",
-    "copy": "복사",
-    "copied": "복사됨!",
-    "copySuccess": "메타 태그가 클립보드에 복사되었습니다",
-    "copyError": "메타 태그 복사에 실패했습니다"
-  },
-  "preview": {
-    "title": "SERP 미리보기 ({{mode}})",
-    "titleCutoff": "제목 잘림:",
-    "descriptionCutoff": "설명 잘림:",
-    "truncated": "잘림",
-    "full": "전체"  },
   "onboarding": {
-    "sampleData": "샘플 데이터 체험",
+    "helpTooltip": "도움말 및 가이드",
+    "sampleData": "샘플 데이터",
     "reset": "초기화",
-    "helpTooltip": "Google 검색결과 미리보기 도구입니다"
+    "progress": "진행도",
+    "skip": "건너뛰기",
+    "next": "다음",
+    "start": "시작하기!",
+    "step1": {
+      "title": "템플릿 선택",
+      "description": "왼쪽에서 업종별 템플릿을 선택하여 빠르게 시작하세요"
+    },
+    "step2": {
+      "title": "내용 수정",
+      "description": "가운데에서 제목, 설명, URL을 수정하세요"
+    },
+    "step3": {
+      "title": "실시간 미리보기",
+      "description": "검색 결과가 어떻게 보일지 실시간으로 확인하세요"
+    },
+    "step4": {
+      "title": "SEO 분석",
+      "description": "오른쪽에서 SEO 점수와 개선사항을 확인하세요"
+    }
+  },
+  "quickStart": {
+    "title": "3분만에 SEO 최적화 완성!",
+    "subtitle": "처음 사용하시나요? 간단한 가이드로 빠르게 시작해보세요!",
+    "startGuide": "단계별 가이드 시작",
+    "quickStart": "바로 시작하기",
+    "guarantee": "무료 • 회원가입 불필요 • 즉시 사용 가능",
+    "step1": {
+      "title": "템플릿 선택",
+      "description": "업종별 최적화된 템플릿"
+    },
+    "step2": {
+      "title": "내용 입력",
+      "description": "제목, 설명, URL 수정"
+    },
+    "step3": {
+      "title": "SEO 확인",
+      "description": "실시간 분석 및 최적화"
+    }
   },
   "templates": {
     "title": "빠른 시작 템플릿",

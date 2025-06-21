@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, memo } from 'react';
+import React, { useRef, useEffect, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Monitor, Smartphone } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,10 +15,19 @@ import TemplateSelector from './TemplateSelector';
 import { MetricsDisplay } from './StatusIndicator';
 import { useSERPState } from '@/hooks/useSERPState';
 import { SEOScoreDashboard } from './SEOScoreDashboard';
+import OnboardingGuide from './OnboardingGuide';
+import QuickStartGuide from './QuickStartGuide';
+import { HighlightBorder, StepIndicator } from './HighlightBorder';
 
 const SERPPreview = memo(() => {
   const { t, i18n } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  
+  // 온보딩 상태 관리
+  const [showOnboarding, setShowOnboarding] = useState(false);
+  const [showQuickStart, setShowQuickStart] = useState(true);
+  const [currentHighlightStep, setCurrentHighlightStep] = useState<number | null>(null);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
   
   const {
     state,
@@ -35,9 +44,7 @@ const SERPPreview = memo(() => {
   // Calculate metrics when canvas is available or dependencies change
   useEffect(() => {
     calculateMetrics(canvasRef.current);
-  }, [calculateMetrics]);
-
-  // Handler for template selection
+  }, [calculateMetrics]);  // Handler for template selection
   const handleTemplateSelect = (template: {
     title: string;
     description: string;
@@ -48,7 +55,51 @@ const SERPPreview = memo(() => {
     updateDescription(template.description);
     updateUrl(template.url);
     updateKeywords(template.keywords);
+    
+    // 템플릿 선택 시 2단계(SERP Preview)로 이동
+    setCurrentHighlightStep(2);
+    if (!completedSteps.includes(1)) {
+      setCompletedSteps([...completedSteps, 1]);
+    }
   };
+
+  // 온보딩 핸들러들
+  const handleStartOnboarding = () => {
+    setShowQuickStart(false);
+    setShowOnboarding(true);
+    setCurrentHighlightStep(1);
+  };
+
+  const handleQuickStart = () => {
+    setShowQuickStart(false);
+    setCurrentHighlightStep(1);
+  };
+
+  const handleOnboardingStepComplete = (step: number) => {
+    setCurrentHighlightStep(step);
+    if (!completedSteps.includes(step - 1)) {
+      setCompletedSteps([...completedSteps, step - 1]);
+    }
+  };
+
+  const handleCloseOnboarding = () => {
+    setShowOnboarding(false);
+    setCurrentHighlightStep(null);
+  };
+  // 입력 필드 변경 감지
+  useEffect(() => {
+    if (state.title || state.description || state.url) {
+      if (currentHighlightStep === 2) {
+        // 입력이 완료되면 3단계(SEO 분석)로 자동 이동
+        setTimeout(() => {
+          setCurrentHighlightStep(3);
+        }, 1500); // 1.5초 후 이동
+      }
+      if (!completedSteps.includes(2)) {
+        setCompletedSteps([...completedSteps, 2]);
+      }
+    }
+  }, [state.title, state.description, state.url, currentHighlightStep, completedSteps]);
   return (    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300">
       <div className="container mx-auto px-4 py-4 max-w-7xl">        {/* Header - Enhanced with onboarding */}
         <header className="mb-4 text-center">
@@ -70,8 +121,7 @@ const SERPPreview = memo(() => {
             {t('app.subtitle')}
           </p>
             {/* Quick Action Buttons */}
-          <div className="flex items-center justify-center gap-3 mb-4" key={`onboarding-buttons-${i18n.language}`}>
-            <Button
+          <div className="flex items-center justify-center gap-3 mb-4" key={`onboarding-buttons-${i18n.language}`}>            <Button
               onClick={() => {
                 updateTitle(t('sampleData.title'));
                 updateDescription(t('sampleData.description'));
@@ -129,7 +179,15 @@ const SERPPreview = memo(() => {
               <span>{t('viewMode.mobile')}</span>
             </Button>
           </div>
-        </div>        {/* SEO Score Dashboard */}
+        </div>        {/* Quick Start Guide */}
+        {showQuickStart && (
+          <QuickStartGuide
+            onStartGuide={handleStartOnboarding}
+            onQuickStart={handleQuickStart}
+          />
+        )}
+
+        {/* SEO Score Dashboard */}
         <SEOScoreDashboard
           key={`seo-dashboard-${t('app.title')}`}
           title={state.title}
@@ -138,16 +196,23 @@ const SERPPreview = memo(() => {
           keywords={keywordArray}
         />        {/* Main Grid Layout - 3-column optimized layout */}
         <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">          {/* Left Column - Template Selector Only (3/12 = 25%) */}          <div className="xl:col-span-3 space-y-4">
-            {/* Template Selector - Compact */}
-            <div>
+            <HighlightBorder 
+              isActive={currentHighlightStep === 1} 
+              step={1}
+              className="template-selector"
+            >
               <TemplateSelector onSelectTemplate={handleTemplateSelect} />
-            </div>
+            </HighlightBorder>
           </div>
 
-          {/* Middle Column - SERP Preview + Input Form (5/12 = 41.7%) */}
-          <div className="xl:col-span-5">
-            <section aria-label="Search result preview">
-              <Card className="dark:bg-gray-800 dark:border-gray-700 shadow-lg">
+          {/* Middle Column - SERP Preview + Input Form (5/12 = 41.7%) */}          <div className="xl:col-span-5">
+            <HighlightBorder 
+              isActive={currentHighlightStep === 2} 
+              step={2}
+              className="serp-preview"
+            >
+              <section aria-label="Search result preview">
+                <Card className="dark:bg-gray-800 dark:border-gray-700 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2 dark:text-white">
                     {state.viewMode === 'desktop' ? <Monitor size={20} /> : <Smartphone size={20} />}
@@ -314,32 +379,42 @@ const SERPPreview = memo(() => {
                         <li>• {t('tips.descriptionLimit', { limit: limits.DESCRIPTION_PIXEL_LIMIT })}</li>
                         <li>• {t('tips.includeKeyword')}</li>
                         <li>• {t('tips.compelling')}</li>
-                      </ul>
-                    </div>
+                      </ul>                    </div>
                   </div>
                 </CardContent>
               </Card>
             </section>
-          </div>
-
-          {/* Right Column - SEO Analysis & Meta Tags (4/12 = 33.3%) */}
+            </HighlightBorder>
+          </div>          {/* Right Column - SEO Analysis & Meta Tags (4/12 = 33.3%) */}
           <div className="xl:col-span-4 space-y-4">
-            {/* SEO Analysis Panel - Compact */}
-            <div>
-              <SEOAnalysisPanel
-                title={state.title}
-                description={state.description}
-                url={state.url}
-                keywords={keywordArray}
-              />
-            </div>
-            
-            {/* Meta Tag Generator - Compact */}
-            <div>
-              <MetaTagGenerator title={state.title} description={state.description} />
-            </div>
+            <HighlightBorder 
+              isActive={currentHighlightStep === 3} 
+              step={3}
+              className="seo-analysis"
+            >
+              <div className="space-y-4">
+                {/* SEO Analysis Panel - Compact */}
+                <SEOAnalysisPanel
+                  title={state.title}
+                  description={state.description}
+                  url={state.url}
+                  keywords={keywordArray}
+                />
+                
+                {/* Meta Tag Generator - Compact */}
+                <MetaTagGenerator title={state.title} description={state.description} />
+              </div>
+            </HighlightBorder>
           </div>
         </div>
+
+        {/* Onboarding Guide */}
+        {showOnboarding && (
+          <OnboardingGuide
+            onClose={handleCloseOnboarding}
+            onStepComplete={handleOnboardingStepComplete}
+          />
+        )}
 
         {/* Hidden canvas for text measurement */}
         <canvas 
