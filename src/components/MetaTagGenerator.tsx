@@ -1,28 +1,39 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Copy, Check, ChevronDown, ChevronUp } from 'lucide-react';
+import { Copy, Check, ChevronDown, ChevronUp, Sparkles, Globe } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { Badge } from '@/components/ui/badge';
+
+interface Template {
+  id: string;
+  title: string;
+  description: string;
+  region?: string;
+}
 
 interface MetaTagGeneratorProps {
   title: string;
   description: string;
   url?: string;
   keywords?: string;
+  onApplyTemplate?: (template: { title: string; description: string }) => void;
 }
 
 const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({ 
   title, 
   description, 
   url = window.location.href, 
-  keywords = '' 
+  keywords = '',
+  onApplyTemplate
 }) => {
   const [copied, setCopied] = useState(false);
   const [isAdvancedOpen, setIsAdvancedOpen] = useState(false);
+  const [isTemplatesOpen, setIsTemplatesOpen] = useState(false);
   const [includeOpenGraph, setIncludeOpenGraph] = useState(true);
   const [includeTwitterCard, setIncludeTwitterCard] = useState(true);
   const [includeCanonical, setIncludeCanonical] = useState(true);
@@ -30,8 +41,42 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({
   const { toast } = useToast();
   const { t } = useTranslation();
 
+  // Add meta tag templates based on competitor analysis
+  const templates: Template[] = [
+    {
+      id: 'global-1',
+      title: 'SERP Simulator: Free Google Snippet Preview Tool',
+      description: 'Our free tool lets you see how your title tag, URL and meta description appear in Google search results as you write them.',
+      region: 'global'
+    },
+    {
+      id: 'global-2',
+      title: 'Google SERP Preview Tool | Test Meta Tags Online',
+      description: 'Instantly preview how your website will look in Google search results. Test and optimize your title tags and meta descriptions for better CTR.',
+      region: 'global'
+    },
+    {
+      id: 'global-3',
+      title: 'Meta Tags Generator & SERP Preview | Free SEO Tool',
+      description: 'Create optimized title tags and meta descriptions with our free SERP preview tool. Generate HTML meta tags and see how your site appears in search results.',
+      region: 'global'
+    },
+    {
+      id: 'technical-1',
+      title: 'SEO Meta Tags Simulator (Search Result Preview)',
+      description: 'This tool provides a Google snippet preview to check how title tags and meta descriptions are displayed in search results.',
+      region: 'global'
+    },
+    {
+      id: 'kr-1',
+      title: '구글 검색결과 미리보기: 무료 메타태그 생성기',
+      description: '무료 SEO 도구로 메타 태그를 작성하면서 구글 검색결과에 어떻게 표시되는지 실시간으로 확인하세요.',
+      region: 'kr'
+    }
+  ];
+
   const generateMetaTags = () => {
-    let tags = `<!-- 기본 메타 태그 -->
+    let tags = `<!-- Basic Meta Tags -->
 <meta name="title" content="${title}" />
 <meta name="description" content="${description}" />`;
     
@@ -40,12 +85,12 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({
     }
     
     if (includeCanonical) {
-      tags += `\n\n<!-- 표준 링크 -->
+      tags += `\n\n<!-- Canonical Link -->
 <link rel="canonical" href="${url}" />`;
     }
     
     if (includeRobots) {
-      tags += `\n\n<!-- 검색 엔진 지시사항 -->
+      tags += `\n\n<!-- Search Engine Directives -->
 <meta name="robots" content="index, follow" />
 <meta name="googlebot" content="index, follow" />`;
     }
@@ -76,16 +121,30 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({
       await navigator.clipboard.writeText(generateMetaTags());
       setCopied(true);
       toast({
-        title: t('metaTags.copied'),
-        description: t('metaTags.copySuccess'),
+        title: t('metaTags.copied', 'Copied!'),
+        description: t('metaTags.copySuccess', 'Meta tags copied to clipboard'),
       });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       toast({
         title: "Error",
-        description: t('metaTags.copyError'),
+        description: t('metaTags.copyError', 'Failed to copy to clipboard'),
         variant: "destructive",
       });
+    }
+  };
+
+  const handleApplyTemplate = (template: Template) => {
+    if (onApplyTemplate) {
+      onApplyTemplate({
+        title: template.title,
+        description: template.description
+      });
+      toast({
+        title: t('metaTags.templateApplied', 'Template Applied'),
+        description: t('metaTags.templateAppliedDesc', 'The selected template has been applied'),
+      });
+      setIsTemplatesOpen(false);
     }
   };
 
@@ -112,6 +171,55 @@ const MetaTagGenerator: React.FC<MetaTagGeneratorProps> = ({
         </div>
       </CardHeader>
       <CardContent className="space-y-6 p-6 pb-8">
+        {onApplyTemplate && (
+          <div className="space-y-4">
+            <Button 
+              variant="ghost" 
+              onClick={() => setIsTemplatesOpen(!isTemplatesOpen)}
+              className="flex items-center justify-between w-full text-left font-medium text-gray-700 dark:text-gray-300 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+            >
+              <div className="flex items-center space-x-2">
+                <Sparkles size={16} className="text-amber-500" />
+                <span>{t('metaTags.suggestedTemplates', 'Suggested Templates')}</span>
+                <Badge variant="outline" className="ml-2 text-xs">
+                  {t('metaTags.new', 'NEW')}
+                </Badge>
+              </div>
+              {isTemplatesOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </Button>
+            
+            {isTemplatesOpen && (
+              <div className="space-y-3 p-4 bg-amber-50 dark:bg-amber-900/20 rounded border dark:border-amber-800">
+                <p className="text-xs text-amber-800 dark:text-amber-300">
+                  {t('metaTags.templateDesc', 'Click on a template to apply it to your meta tags. These are optimized for search engines based on best practices.')}
+                </p>
+                <div className="grid grid-cols-1 gap-2 mt-2">
+                  {templates.filter(t => t.region === 'global' || t.region === undefined).map((template) => (
+                    <Button
+                      key={template.id}
+                      variant="ghost"
+                      className="h-auto p-2 justify-start text-left hover:bg-amber-100 dark:hover:bg-amber-900/30"
+                      onClick={() => handleApplyTemplate(template)}
+                    >
+                      <div className="flex flex-col w-full">
+                        <div className="flex items-center">
+                          <Globe size={14} className="text-blue-500 mr-2" />
+                          <span className="font-medium text-xs text-blue-700 dark:text-blue-300">
+                            {template.title}
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
+                          {template.description}
+                        </p>
+                      </div>
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+        
         <div className="space-y-4">
           <Button 
             variant="ghost" 

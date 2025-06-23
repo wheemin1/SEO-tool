@@ -400,9 +400,17 @@ const SERPPreview = memo(() => {
                   url={state.url}
                   keywords={keywordArray}
                 />
-                
-                {/* Meta Tag Generator - Compact */}
-                <MetaTagGenerator title={state.title} description={state.description} />
+                  {/* Meta Tag Generator - Compact */}
+                <MetaTagGenerator 
+                  title={state.title} 
+                  description={state.description} 
+                  url={state.url}
+                  keywords={state.keywords}
+                  onApplyTemplate={(template) => {
+                    updateTitle(template.title);
+                    updateDescription(template.description);
+                  }}
+                />
               </div>
             </HighlightBorder>
           </div>
